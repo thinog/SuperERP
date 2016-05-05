@@ -71,7 +71,7 @@ namespace SuperERP.DAL.Repositories
             dbContext = null;
         }
 
-        private void Dispose()
+        public void Dispose()
         {
             Dispose(true);
         }
