@@ -95,35 +95,41 @@ CREATE TABLE ClienteFornecedor(
 	CONSTRAINT FK_CliFor_PF FOREIGN KEY(ID_PF) REFERENCES PessoaFisica(ID)
 );
 go
-CREATE TABLE DadosBancariosFornCliente(
+CREATE TABLE DadosBancarios(
 	ID INT identity NOT NULL PRIMARY KEY,	
 	Banco VARCHAR(40) NOT NULL,
 	Conta_Corrente VARCHAR(20) NOT NULL,
 	Agencia VARCHAR(10) NOT NULL,
-	ID_ClienteFornecedor INT NOT NULL,
-	CONSTRAINT FK_ProdForn_Fornecedor FOREIGN KEY(ID_ClienteFornecedor) REFERENCES ClienteFornecedor(ID)	
+	ID_PessoaJuridica INT NOT NULL,
+	ID_PessoaFisica INT NOT NULL,
+	CONSTRAINT FK_DadosBancarios_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
+	CONSTRAINT FK_DadosBancarios_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
 go
-CREATE TABLE ClienteFornecedorContato(
+CREATE TABLE Contato(
 	ID INT identity NOT NULL PRIMARY KEY,
 	Nome VARCHAR(60) NOT NULL,
-	ID_Fornecedor INT NOT NULL,
+	ID_PessoaJuridica INT NOT NULL,
+	ID_PessoaFisica INT NOT NULL,
 	Email VARCHAR(64) NOT NULL,
 	Fone VARCHAR(15) NOT NULL,
 	Cargo VARCHAR(30),
-	CONSTRAINT FK_ClieFornCont_Fornecedor FOREIGN KEY(ID_Fornecedor) REFERENCES ClienteFornecedor(ID)
+	CONSTRAINT FK_Contato_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
+	CONSTRAINT FK_Contato_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
 go
-CREATE TABLE ClienteFornecedorEndereco(
+CREATE TABLE Endereco(
 	ID INT identity NOT NULL PRIMARY KEY,
 	CEP VARCHAR(8) NOT NULL,
-	ID_Fornecedor INT NOT NULL,
+	ID_PessoaJuridica INT NOT NULL,
+	ID_PessoaFisica INT NOT NULL,
 	Endereco VARCHAR(64) NOT NULL,
 	Numero VARCHAR(4) NOT NULL,
 	Complemento VARCHAR(30) NOT NULL,
 	Bairro VARCHAR(30) NOT NULL,
 	Cidade VARCHAR(30) NOT NULL,
-	CONSTRAINT ClieFornEnd_Fornecedor FOREIGN KEY(ID_Fornecedor) REFERENCES ClienteFornecedor(ID)
+	CONSTRAINT FK_Endereco_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
+	CONSTRAINT FK_Endereco_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
 go
 CREATE TABLE Periodicidade(
