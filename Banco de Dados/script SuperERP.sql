@@ -234,6 +234,7 @@ CREATE TABLE Compra(
 	ID INT identity NOT NULL PRIMARY KEY,
 	ID_Empresa int not null,
 	ID_Fornecedor INt NOT NULL,
+	ID_Usuario int not null,
 	ID_Status INT NOT NULL,
 	Compra_Num INT NOT NULL,
 	Data_Compra DATE NOT NULL,
