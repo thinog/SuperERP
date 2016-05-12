@@ -38,7 +38,7 @@ create table Usuario(
 	ID_Perfil int not null, 
 	ID_Empresa int not null,
 	Nome VARCHAR(200) NOT NULL,
-	Email VARCHAR(150) NOT NULL,/*Ser· utilizado como login do usu·rio*/
+	Email VARCHAR(150) NOT NULL,/*Ser√° utilizado como login do usu√°rio*/
 	Senha VARCHAR(60) not null,
 	CONSTRAINT FK_Usuario_Perfil FOREIGN KEY(ID_Perfil) REFERENCES Perfil (ID),
 	CONSTRAINT FK_Usuario_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID)
@@ -95,35 +95,41 @@ CREATE TABLE ClienteFornecedor(
 	CONSTRAINT FK_CliFor_PF FOREIGN KEY(ID_PF) REFERENCES PessoaFisica(ID)
 );
 go
-CREATE TABLE DadosBancariosFornCliente(
+CREATE TABLE DadosBancarios(
 	ID INT identity NOT NULL PRIMARY KEY,	
 	Banco VARCHAR(40) NOT NULL,
 	Conta_Corrente VARCHAR(20) NOT NULL,
 	Agencia VARCHAR(10) NOT NULL,
-	ID_ClienteFornecedor INT NOT NULL,
-	CONSTRAINT FK_ProdForn_Fornecedor FOREIGN KEY(ID_ClienteFornecedor) REFERENCES ClienteFornecedor(ID)	
+	ID_PessoaJuridica INT NOT NULL,
+	ID_PessoaFisica INT NOT NULL,
+	CONSTRAINT FK_DadosBancarios_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
+	CONSTRAINT FK_DadosBancarios_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
 go
-CREATE TABLE ClienteFornecedorContato(
+CREATE TABLE Contato(
 	ID INT identity NOT NULL PRIMARY KEY,
 	Nome VARCHAR(60) NOT NULL,
-	ID_Fornecedor INT NOT NULL,
+	ID_PessoaJuridica INT NOT NULL,
+	ID_PessoaFisica INT NOT NULL,
 	Email VARCHAR(64) NOT NULL,
 	Fone VARCHAR(15) NOT NULL,
 	Cargo VARCHAR(30),
-	CONSTRAINT FK_ClieFornCont_Fornecedor FOREIGN KEY(ID_Fornecedor) REFERENCES ClienteFornecedor(ID)
+	CONSTRAINT FK_Contato_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
+	CONSTRAINT FK_Contato_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
 go
-CREATE TABLE ClienteFornecedorEndereco(
+CREATE TABLE Endereco(
 	ID INT identity NOT NULL PRIMARY KEY,
 	CEP VARCHAR(8) NOT NULL,
-	ID_Fornecedor INT NOT NULL,
+	ID_PessoaJuridica INT NOT NULL,
+	ID_PessoaFisica INT NOT NULL,
 	Endereco VARCHAR(64) NOT NULL,
 	Numero VARCHAR(4) NOT NULL,
 	Complemento VARCHAR(30) NOT NULL,
 	Bairro VARCHAR(30) NOT NULL,
 	Cidade VARCHAR(30) NOT NULL,
-	CONSTRAINT ClieFornEnd_Fornecedor FOREIGN KEY(ID_Fornecedor) REFERENCES ClienteFornecedor(ID)
+	CONSTRAINT FK_Endereco_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
+	CONSTRAINT FK_Endereco_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
 go
 CREATE TABLE Periodicidade(
@@ -234,6 +240,7 @@ CREATE TABLE Compra(
 	ID INT identity NOT NULL PRIMARY KEY,
 	ID_Empresa int not null,
 	ID_Fornecedor INt NOT NULL,
+	ID_Usuario int not null,
 	ID_Status INT NOT NULL,
 	Compra_Num INT NOT NULL,
 	Data_Compra DATE NOT NULL,
@@ -244,9 +251,9 @@ CREATE TABLE Compra(
 	CONSTRAINT FK_Compra_CC FOREIGN KEY(ID_conta) REFERENCES Dados_Bancarios(ID),
 	CONSTRAINT FK_Compra_Cliente FOREIGN KEY(ID_Fornecedor) REFERENCES ClienteFornecedor(ID),
 	CONSTRAINT FK_Compra_Status FOREIGN KEY(ID_Status) REFERENCES Status_Venda(ID),
-	/*CONSTRAINT FK_Compra_Vendedor FOREIGN KEY(ID_Vendedor) REFERENCES Vendedor(ID),*/
 	CONSTRAINT FK_Compra_FormaPgto FOREIGN KEY(ID_FormaPgto) REFERENCES Forma_Pgto(ID),
-	CONSTRAINT FK_Compra_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID)
+	CONSTRAINT FK_Compra_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID),
+	CONSTRAINT FK_Compra_Usuario FOREIGN KEY(ID_Usuario) REFERENCES Usuario(ID)
 );
 go
 CREATE TABLE Compra_Ativos(
@@ -259,7 +266,7 @@ CREATE TABLE Compra_Ativos(
 	Quantidade INT,
 	CONSTRAINT FK_CompraAtivo_Venda FOREIGN KEY(ID_Compra) REFERENCES Compra(ID),
 	CONSTRAINT FK_CompraAtivo_Produto FOREIGN KEY(ID_Produto) REFERENCES Produto(ID),
-	CONSTRAINT FK_CompraAtivo_Servico FOREIGN KEY(ID_Servico) REFERENCES Servico(ID),
+	CONSTRAINT FK_CompraAtivo_Servico FOREIGN KEY(ID_Servico) REFERENCES Servico(ID)
 );
 go
 CREATE TABLE Venda(
@@ -297,7 +304,7 @@ CREATE TABLE Venda_Ativos(
 	CONSTRAINT FK_Compra FOREIGN KEY(ID_Compra) REFERENCES Compra(ID),
 	CONSTRAINT FK_VendaAtivo_Venda FOREIGN KEY(ID_Venda) REFERENCES Venda(ID),
 	CONSTRAINT FK_VendaAtivo_Produto FOREIGN KEY(ID_Produto) REFERENCES Produto(ID),
-	CONSTRAINT FK_VendaAtivo_Servico FOREIGN KEY(ID_Servico) REFERENCES Servico(ID),
+	CONSTRAINT FK_VendaAtivo_Servico FOREIGN KEY(ID_Servico) REFERENCES Servico(ID)
 );
 go
 CREATE TABLE Contrato_Venda(
@@ -310,7 +317,7 @@ CREATE TABLE Contrato_Venda(
 	Juros DECIMAL(4,2) NOT NULL,
 	Ocorrencias INT NOT NULL,
 	CONSTRAINT FK_ContratoVenda_Periodicidade FOREIGN KEY(ID_Periodicidade) REFERENCES Periodicidade(ID),
-	CONSTRAINT FK_ContratoVenda_Venda FOREIGN KEY(ID_Venda) REFERENCES Venda(ID),
+	CONSTRAINT FK_ContratoVenda_Venda FOREIGN KEY(ID_Venda) REFERENCES Venda(ID)
 );
 go
 CREATE TABLE Parcelamento(
