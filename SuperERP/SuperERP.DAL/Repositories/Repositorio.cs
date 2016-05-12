@@ -9,7 +9,7 @@ namespace SuperERP.DAL.Repositories
     {
         protected SuperERPContext dbContext = new SuperERPContext();
 
-        ICollection<T> IRepository<T>.ObterLista()
+        public ICollection<T> ObterLista()
         {
             return dbContext.Set<T>().ToList();
         }

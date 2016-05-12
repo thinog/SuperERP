@@ -18,7 +18,6 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult PessoaFisica(PessoaFisicaDTO pessoa)
         {
-            SuperERP.Vendas.Cadastro.PessoaFisica(pessoa);
             var pessoaFisica = SuperERP.Vendas.Listar.PessoaFisica();
             var teste = new List<string>();
             return View(pessoaFisica);
