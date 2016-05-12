@@ -8,5 +8,7 @@ namespace SuperERP.Compras.Dto
 {
     class UsuarioDto
     {
+
+
     }
 }
