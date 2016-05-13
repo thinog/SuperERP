@@ -8,10 +8,10 @@ namespace SuperERP.DAL.Repositories
 {
     interface IRepository<T> : IDisposable where T : class
     {
-        public ICollection<T> ObterLista();
-        public T ObterPorEntidadePorId(int id);
-        public bool Cadastrar(T entidade);
-        public bool Deletar(T entidade);
-        public bool Deletar(int id);
+        ICollection<T> ObterLista();
+        T ObterPorEntidadePorId(int id);
+        bool Cadastrar(T entidade);
+        bool Deletar(T entidade);
+        bool Deletar(int id);
     }
 }
