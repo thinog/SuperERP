@@ -1,3 +1,4 @@
+create database SuperERP;
 go
 use SuperERP;
 go
