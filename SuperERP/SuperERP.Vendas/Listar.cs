@@ -31,6 +31,12 @@ namespace SuperERP.Vendas
             return new List<PessoaJuridicaDTO>();
         }
 
+        public static ICollection<Parcelamento> Parcelamentos()
+        {
+            var parcelamentos = new ParcelasAReceberRepositorio();
+            return parcelamentos.PegarTodasParcelas();
+        }
+
         public static PessoaJuridicaDTO PessoaJuridica()
         {
             //ToDo: Ainda deverá ser implementado

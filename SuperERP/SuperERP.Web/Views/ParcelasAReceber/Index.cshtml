@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SuperERP.DAL.Models.Parcelamento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Compra.Observacoes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Venda.Observacoes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_Parcela)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_Pagamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_Pago)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Compra.Observacoes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venda.Observacoes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero_Parcela)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_Pagamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_Pago)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

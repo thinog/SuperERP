@@ -44,6 +44,9 @@
   <ItemGroup>
     <Compile Include="Cadastro.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
+    <Compile Include="DTO\ParcelasAReceberDTO.cs" />
+    <Compile Include="DTO\ParcelasRecebidasDTO.cs" />
+    <Compile Include="DTO\ParcelasVencidasDTO.cs" />
     <Compile Include="DTO\PessoaFisicaDTO.cs" />
     <Compile Include="DTO\PessoaJuridicaDTO.cs" />
     <Compile Include="Listar.cs" />
