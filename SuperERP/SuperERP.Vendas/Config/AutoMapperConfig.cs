@@ -3,7 +3,7 @@ using SuperERP.Vendas.DTO;
 
 namespace SuperERP.Vendas.Config
 {
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
         public static void Inicializar() {
             ConverteDTOParaModel();
@@ -13,11 +13,13 @@ namespace SuperERP.Vendas.Config
         public static void ConverteDTOParaModel()
         {
             AutoMapper.Mapper.CreateMap<PessoaFisicaDTO, PessoaFisica>();
+            AutoMapper.Mapper.CreateMap<ParcelamentoDTO, Parcelamento>();
         }
 
         public static void ConverteModelParaDTO()
         {
             AutoMapper.Mapper.CreateMap<PessoaFisica, PessoaFisicaDTO>();
+            AutoMapper.Mapper.CreateMap<Parcelamento, ParcelamentoDTO>();
         }
     }
 }

@@ -10,7 +10,7 @@ create table Empresa(
 	CEP VARCHAR(8) NOT NULL,
 	Endereco VARCHAR(64) NOT NULL,
 	Numero VARCHAR(4) NOT NULL,
-	Complemento VARCHAR(30) NOT NULL,
+	Complemento VARCHAR(30) NOT NULL,parce
 	Bairro VARCHAR(30) NOT NULL,
 	Cidade VARCHAR(30) NOT NULL
 );
@@ -320,7 +320,7 @@ CREATE TABLE Parcelamento(
 	Valor  DECIMAL (4,2) not null,
 	Pago bit,
 	Data_Pagamento Date not null,
-	Data_Pago Date not null,
+	Data_Pago Date,
 	CONSTRAINT FK_Parcelamento_Compra FOREIGN KEY(ID_Compra) REFERENCES Compra(ID),
 	CONSTRAINT FK_Parcelamento_Venda FOREIGN KEY(ID_Venda) REFERENCES Venda(ID)
 )
