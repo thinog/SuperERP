@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SuperERP.Vendas.DTO.ParcelamentoDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .atrasado{background:#e34;color:white;}
+</style>
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Venda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_Parcela)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_Pagamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_Pago)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr class="@(item.Pago==false ? "atrasado":"")">
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Venda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero_Parcela)
+        </td>
+        <td>
+            R$@Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_Pagamento)
+        </td>
+        <td>
+            @(item.Data_Pago != null ? "Não Pago" : @Html.DisplayFor(modelItem => item.Data_Pago) )
+        </td>
+        <td>
+            @Html.ActionLink("Recebido", "Receber", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
