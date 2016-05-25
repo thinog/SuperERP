@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SuperERP.Compras;
-using SuperERP.DAL.Repositories;
-using SuperERP.DAL.Models;
+
 
 namespace SuperERP.Web.Controllers
 {
@@ -102,6 +101,7 @@ namespace SuperERP.Web.Controllers
             item.ID = 1;
             lista.Add(item);
             return Json(lista, JsonRequestBehavior.AllowGet);
+           
         }
     }
 }
