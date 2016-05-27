@@ -41,7 +41,7 @@ namespace SuperERP.DAL.Repositories
                 dbContext.Set<T>().Remove(entidade);
                 dbContext.SaveChanges();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return false;
             }
@@ -56,7 +56,7 @@ namespace SuperERP.DAL.Repositories
                 dbContext.Set<T>().Remove(entidade);
                 dbContext.SaveChanges();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return false;
             }
