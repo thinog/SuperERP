@@ -10,7 +10,7 @@ create table Empresa(
 	CEP VARCHAR(8) NOT NULL,
 	Endereco VARCHAR(64) NOT NULL,
 	Numero VARCHAR(4) NOT NULL,
-	Complemento VARCHAR(30) NOT NULL,parce
+	Complemento VARCHAR(30) NOT NULL,
 	Bairro VARCHAR(30) NOT NULL,
 	Cidade VARCHAR(30) NOT NULL
 );
