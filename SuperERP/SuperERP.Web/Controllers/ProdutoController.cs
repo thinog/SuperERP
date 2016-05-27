@@ -96,11 +96,12 @@ namespace SuperERP.Web.Controllers
 
         public ActionResult GetProdutos()
         {
-            var lista = new List<Produto>();
-            var item = new Produto();
-            item.ID = 1;
-            lista.Add(item);
-            return Json(lista, JsonRequestBehavior.AllowGet);
+            //var lista = new List<Produto>();
+            //var item = new Produto();
+            //item.ID = 1;
+            //lista.Add(item);
+            //return Json(lista, JsonRequestBehavior.AllowGet);
+            return Json(new {}, JsonRequestBehavior.AllowGet);
            
         }
     }
