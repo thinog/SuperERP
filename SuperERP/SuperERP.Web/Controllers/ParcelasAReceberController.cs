@@ -12,9 +12,17 @@ namespace SuperERP.Web.Controllers
         // GET: /ParcelasAReceber/
         public ActionResult Index()
         {
-            var parcelas = Vendas.Listar.Parcelamentos();
+            var parcelas = Vendas.Listar.Parcelamentos();                       
 
-            return View(parcelas);
+            ViewBag.parcelasAreceber  = parcelas[0];
+            ViewBag.parcelasRecebidas = parcelas[1];
+            ViewBag.parcelasVencidas = parcelas[2];
+
+            ViewBag.receberValor   = parcelas[0].ToList().Sum(p => p.Valor);
+            ViewBag.recebidasValor = parcelas[1].ToList().Sum(p => p.Valor);
+            ViewBag.vencidasValor = parcelas[2].ToList().Sum(p => p.Valor);
+
+            return View();
         }
 
         //
