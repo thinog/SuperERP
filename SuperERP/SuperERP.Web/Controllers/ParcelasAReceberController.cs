@@ -3,34 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SuperERP.Compras;
-
 
 namespace SuperERP.Web.Controllers
 {
-    public class ProdutoController : Controller
+    public class ParcelasAReceberController : Controller
     {
+        //
+        // GET: /ParcelasAReceber/
         public ActionResult Index()
         {
+            var parcelas = Vendas.Listar.Parcelamentos();                       
+
+            ViewBag.parcelasAreceber  = parcelas[0];
+            ViewBag.parcelasRecebidas = parcelas[1];
+            ViewBag.parcelasVencidas = parcelas[2];
+
+            ViewBag.receberValor   = parcelas[0].ToList().Sum(p => p.Valor);
+            ViewBag.recebidasValor = parcelas[1].ToList().Sum(p => p.Valor);
+            ViewBag.vencidasValor = parcelas[2].ToList().Sum(p => p.Valor);
+
             return View();
         }
 
         //
-        // GET: /Produto/Details/5
+        // GET: /ParcelasAReceber/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
         //
-        // GET: /Produto/Create
+        // GET: /ParcelasAReceber/Create
         public ActionResult Create()
         {
             return View();
         }
 
         //
-        // POST: /Produto/Create
+        // POST: /ParcelasAReceber/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -45,40 +55,32 @@ namespace SuperERP.Web.Controllers
                 return View();
             }
         }
-
         //
-        // GET: /Produto/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Produto/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        // POST: /ParcelasAReceber/Edit/5
+        //[HttpPost]
+        public ActionResult Receber(int id)
         {
             try
             {
                 // TODO: Add update logic here
-
+                Vendas.Alterar.Parcela(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 
         //
-        // GET: /Produto/Delete/5
+        // GET: /ParcelasAReceber/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         //
-        // POST: /Produto/Delete/5
+        // POST: /ParcelasAReceber/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -92,17 +94,6 @@ namespace SuperERP.Web.Controllers
             {
                 return View();
             }
-        }
-
-        public ActionResult GetProdutos()
-        {
-            //var lista = new List<Produto>();
-            //var item = new Produto();
-            //item.ID = 1;
-            //lista.Add(item);
-            //return Json(lista, JsonRequestBehavior.AllowGet);
-            return Json(new {}, JsonRequestBehavior.AllowGet);
-           
         }
     }
 }

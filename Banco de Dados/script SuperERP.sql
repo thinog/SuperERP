@@ -1,3 +1,4 @@
+create database SuperERP;
 go
 use SuperERP;
 go
@@ -319,7 +320,7 @@ CREATE TABLE Parcelamento(
 	Valor  DECIMAL (4,2) not null,
 	Pago bit,
 	Data_Pagamento Date not null,
-	Data_Pago Date not null,
+	Data_Pago Date,
 	CONSTRAINT FK_Parcelamento_Compra FOREIGN KEY(ID_Compra) REFERENCES Compra(ID),
 	CONSTRAINT FK_Parcelamento_Venda FOREIGN KEY(ID_Venda) REFERENCES Venda(ID)
 )
