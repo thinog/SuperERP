@@ -31,13 +31,40 @@ namespace SuperERP.Vendas
             return new List<PessoaJuridicaDTO>();
         }
 
-        public static ICollection<ParcelamentoDTO> Parcelamentos()
+        public static ICollection<ParcelamentoDTO>[] Parcelamentos()
         {
             Config.AutoMapperConfig.Inicializar();
-            var parcelamentos = new ParcelasAReceberRepositorio();
-            var parcelas = parcelamentos.PegarTodasParcelas();
-            var p = Mapper.Map<ICollection<Parcelamento>, ICollection<ParcelamentoDTO>>(parcelas);
-            return p;
+            List<ParcelamentoDTO> parcelasAreceber = new List<ParcelamentoDTO>();
+            List<ParcelamentoDTO> parcelasRecebidas = new List<ParcelamentoDTO>();
+            List<ParcelamentoDTO> parcelasVencidas = new List<ParcelamentoDTO>();
+
+            ICollection<ParcelamentoDTO>[] parcelas = new ICollection<ParcelamentoDTO>[3];
+
+            var parcelamentoRep = new ParcelasAReceberRepositorio();
+            var parcelamentos = parcelamentoRep.PegarTodasParcelas();
+            
+            var parcelasDTO = Mapper.Map<ICollection<Parcelamento>, ICollection<ParcelamentoDTO>>(parcelamentos);
+
+            foreach (var p in parcelasDTO)
+            {
+                if (p.Pago == false && System.DateTime.Compare(p.Data_Pagamento, System.DateTime.Today) < 0)
+                {
+                    parcelasVencidas.Add(p);
+                }
+                else if (p.Pago == true)
+                {
+                    parcelasRecebidas.Add(p);
+                }
+                else if (p.Pago == false && System.DateTime.Compare(p.Data_Pagamento, System.DateTime.Today) > 0)
+                {
+                    parcelasAreceber.Add(p);
+                }
+            }
+            parcelas[0] = parcelasAreceber;
+            parcelas[1] = parcelasRecebidas;
+            parcelas[2] = parcelasVencidas;
+
+            return parcelas;
         }
         public static ParcelamentoDTO Parcelamento(int id)
         {
