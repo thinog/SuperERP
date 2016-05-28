@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SuperERP.Vendas.DTO.ProdutoEstoqueDTO>
+
+@{
+    ViewBag.Title = "View1";
+}
+
+<h2>View1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Unidade_Medida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo_Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor_Venda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor_Custo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estoque)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Unidade_Medida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo_Cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor_Venda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor_Custo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estoque)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

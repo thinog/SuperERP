@@ -6,41 +6,36 @@ using System.Web.Mvc;
 
 namespace SuperERP.Web.Controllers
 {
-    public class ParcelasAReceberController : Controller
+    public class EstoqueGeralController : Controller
     {
         //
-        // GET: /ParcelasAReceber/
+        // GET: /EstoqueGeral/
+
         public ActionResult Index()
         {
-            var parcelas = Vendas.Listar.Parcelamentos();
-
-            ViewBag.parcelasAreceber  = parcelas[0];
-            ViewBag.parcelasRecebidas = parcelas[1];
-            ViewBag.parcelasVencidas = parcelas[2];
-
-            ViewBag.receberValor   = parcelas[0].ToList().Sum(p => p.Valor);
-            ViewBag.recebidasValor = parcelas[1].ToList().Sum(p => p.Valor);
-            ViewBag.vencidasValor = parcelas[2].ToList().Sum(p => p.Valor);
-
-            return View();
+            var estoque = Vendas.Listar.Estoque();
+            return View(estoque);
         }
 
         //
-        // GET: /ParcelasAReceber/Details/5
-        public ActionResult Details(int id)
+        // GET: /EstoqueGeral/Detalhe/5
+
+        public ActionResult Detalhe(int id)
         {
             return View();
         }
 
         //
-        // GET: /ParcelasAReceber/Create
+        // GET: /EstoqueGeral/Create
+
         public ActionResult Create()
         {
             return View();
         }
 
         //
-        // POST: /ParcelasAReceber/Create
+        // POST: /EstoqueGeral/Create
+
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -55,32 +50,44 @@ namespace SuperERP.Web.Controllers
                 return View();
             }
         }
+
         //
-        // POST: /ParcelasAReceber/Edit/5
-        //[HttpPost]
-        public ActionResult Receber(int id)
+        // GET: /EstoqueGeral/Edit/5
+
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        //
+        // POST: /EstoqueGeral/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
-                Vendas.Alterar.Parcela(id);
+
                 return RedirectToAction("Index");
             }
             catch
             {
-                return RedirectToAction("Index");
+                return View();
             }
         }
 
         //
-        // GET: /ParcelasAReceber/Delete/5
+        // GET: /EstoqueGeral/Delete/5
+
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         //
-        // POST: /ParcelasAReceber/Delete/5
+        // POST: /EstoqueGeral/Delete/5
+
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

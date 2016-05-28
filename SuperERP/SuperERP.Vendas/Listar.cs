@@ -25,6 +25,14 @@ namespace SuperERP.Vendas
             return new PessoaFisicaDTO();
         }
 
+        public static ICollection<ProdutoEstoqueDTO> Estoque()
+        {
+            var estoqueRep = new EstoqueRepository();
+            var estoque = estoqueRep.PegarEstoque();
+            var estoqueDTO = Mapper.Map<ICollection<Produto>, ICollection<ProdutoEstoqueDTO>>(estoque);
+            return estoqueDTO;
+        }
+
         public static ICollection<PessoaJuridicaDTO> PessoasJuridicas()
         {
             //ToDo: Ainda deverá ser implementado
@@ -74,11 +82,26 @@ namespace SuperERP.Vendas
             var p = Mapper.Map<Parcelamento, ParcelamentoDTO>(parcela);
             return p;
         }
-
         public static PessoaJuridicaDTO PessoaJuridica()
         {
             //ToDo: Ainda deverá ser implementado
             return new PessoaJuridicaDTO();
+        }
+        public static VendaDTO Venda(int id)
+        {
+            Config.AutoMapperConfig.Inicializar();
+            var vendaRep = new VendasRepository();
+            var venda = vendaRep.PegarVenda(id);
+            var vendaDTO = Mapper.Map<Venda, VendaDTO>(venda);
+            return vendaDTO;
+        }
+        public static ICollection<VendaAtivosDTO> VendaAtivos(int id)
+        {
+            Config.AutoMapperConfig.Inicializar();
+            var vendaAtivosRep = new VendaAtivosRepository();
+            var vendaAtivos = vendaAtivosRep.PegarVendaAtivos(id);
+            var vendaAtivosDTO = Mapper.Map<ICollection<Venda_Ativos>, ICollection<VendaAtivosDTO>>(vendaAtivos);
+            return vendaAtivosDTO;
         }
     }
 }

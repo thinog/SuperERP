@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Nota Fiscal Produto";
+    var venda = ViewBag.venda;
+}
+
+<h2>Nota Fiscal Produto</h2>
+
+<fieldset>
+    <legend>Nota Fiscal</legend>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h3>Cliente</h3>
+                <h4>@ViewBag.venda.ID_Cliente</h4>
+             </div>
+            <div class="col-sm-3">
+                <h3>Email</h3>
+                <h4>@ViewBag.venda.ClienteFornecedor.ID</h4>
+             </div>
+            <div class="col-sm-3">
+                <h3>Telefone</h3>
+                <h4>@ViewBag.venda.ClienteFornecedor.ID</h4>
+             </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-3">
+                <h3>Data da Venda</h3>
+                <h4>@ViewBag.venda.Data_Venda</h4>
+             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <h3>Vencimento</h3>
+                <h4>@ViewBag.venda.Data_Venda</h4>
+             </div>
+            <div class="col-sm-3">
+                <h3>Forma de Pagamento</h3>
+                <h4>@ViewBag.venda.Forma_Pgto.Nome</h4>
+             </div>
+        </div>
+
+
+
+        <div class="row">
+            <h2>Ativos da Venda</h2>
+            <table class="table-striped table-hover table">
+                <tr>
+                    <th>Produto Vendido</th><th>NCM</th><th>ICMS</th><th>Situação Tributária</th>
+                </tr>
+                @foreach(var item in ViewBag.vendaAtivos){
+                    <tr>
+                        <td>@item.Produto.Nome</td><td>@item.Produto.ID_ICM</td><td>@item.Produto.ICMS</td><td>Sei la mano</td>
+                    </tr>
+                }
+            <table>
+        </div>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
