@@ -1,4 +1,5 @@
 ﻿using SuperERP.Compras.Dto;
+using SuperERP.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.Service
 {
-    class UsuarioService
+    class EmpresaService
     {
-        public void salvar(UsuarioDto usuario)
+        public static void Cadastra(EmpresaDto empresaDto)
         {
+            EmpresaRepository.Gravar();
 
         }
     }

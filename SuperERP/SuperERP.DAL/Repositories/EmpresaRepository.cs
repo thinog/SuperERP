@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperERP.DAL.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,11 @@ namespace SuperERP.DAL.Repositories
 {
     class EmpresaRepository
     {
-        public static void criar()
+        private  SuperERPContext dbContext = new SuperERPContext();
+        public static void Gravar()
         {
+            dbContext.Empresas.Add();
+
 
         }
 
