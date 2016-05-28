@@ -1,15 +1,12 @@
-﻿using SuperERP.DAL.Context;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperERP.Compras.Repository
+namespace SuperERP.Compras.Dto
 {
-    class UsuarioRepository
+    class ProdutoDto
     {
-
-     
     }
 }
