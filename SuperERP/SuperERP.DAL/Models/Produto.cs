@@ -14,8 +14,8 @@ namespace SuperERP.DAL.Models
 
         public int ID { get; set; }
         public int ID_Empresa { get; set; }
-        public Nullable<int> ID_Cliente { get; set; }
         public int ID_Categoria { get; set; }
+        public Nullable<int> ID_Cliente { get; set; }
         public Nullable<int> ID_Ncm { get; set; }
         public Nullable<int> ID_Unidade_Medida { get; set; }
         public double ICMS { get; set; }
