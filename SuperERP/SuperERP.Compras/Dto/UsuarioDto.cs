@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.Dto
 {
-    class UsuarioDto
+    public class UsuarioDto
     {
         public int ID { get; set; }
         public int ID_Perfil { get; set; }
