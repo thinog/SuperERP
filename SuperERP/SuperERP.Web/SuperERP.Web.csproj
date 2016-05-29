@@ -196,6 +196,9 @@
     <Content Include="Views\Produto\Create.cshtml" />
     <Content Include="Views\ParcelasAReceber\Index.cshtml" />
     <Content Include="Views\Cadastro\Usuario.cshtml" />
+    <Content Include="Views\EstoqueGeral\Index.cshtml" />
+    <Content Include="Views\NotaFiscalVenda\Produto.cshtml" />
+    <Content Include="Views\EstoqueGeral\Inventario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
