@@ -25,7 +25,7 @@ namespace SuperERP.DAL.Models.Mapping
             this.Property(t => t.ID_Categoria).HasColumnName("ID_Categoria");
             this.Property(t => t.ID_Ncm).HasColumnName("ID_Ncm");
             this.Property(t => t.ID_Unidade_Medida).HasColumnName("ID_Unidade_Medida");
-            this.Property(t => t.ClienteFornecedor_ID).HasColumnName("ClienteFornecedor_ID");
+            this.Property(t => t.ID_Cliente).HasColumnName("ID_Cliente");
             this.Property(t => t.ICMS).HasColumnName("ICMS");
             this.Property(t => t.IPI).HasColumnName("IPI");
             this.Property(t => t.IVA).HasColumnName("IVA");
@@ -47,6 +47,9 @@ namespace SuperERP.DAL.Models.Mapping
             this.HasRequired(t => t.Categoria)
                 .WithMany(t => t.Produtoes)
                 .HasForeignKey(d => d.ID_Categoria);
+            this.HasRequired(t => t.ClienteFornecedor)		
+                .WithMany(t => t.Produtoes)		
+                .HasForeignKey(d => d.ID_Cliente);
             this.HasRequired(t => t.Empresa)
                 .WithMany(t => t.Produtoes)
                 .HasForeignKey(d => d.ID_Empresa);
