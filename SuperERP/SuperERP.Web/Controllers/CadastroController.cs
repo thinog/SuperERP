@@ -17,7 +17,8 @@ namespace SuperERP.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Empresa2()
+        public ActionResult Empresa(EmpresaDto usurio)
+
         {
 
             var teste = new List<string>();
@@ -29,10 +30,9 @@ namespace SuperERP.Web.Controllers
             return View();
         }
 
-        //Tava tarde e n'ao queria ficar resolvendo esses conflitos, mudei o nome, quem for dono disso me desculp
-        // Bruno
+
         [HttpPost]
-        public ActionResult Usuario2()
+        public ActionResult Usuario(UsuarioDto usurio)
         {
            
             var teste = new List<string>();
