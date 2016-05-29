@@ -27,10 +27,29 @@ namespace SuperERP.Vendas
 
         public static ICollection<ProdutoEstoqueDTO> Estoque()
         {
+            Config.AutoMapperConfig.Inicializar();
             var estoqueRep = new EstoqueRepository();
-            var estoque = estoqueRep.PegarEstoque();
+            ICollection<Produto> estoque = estoqueRep.PegarEstoque();
             var estoqueDTO = Mapper.Map<ICollection<Produto>, ICollection<ProdutoEstoqueDTO>>(estoque);
             return estoqueDTO;
+        }
+
+        public static ICollection<VendaAtivosEstoqueDTO> VendaAtivosProduto(int idProduto)
+        {
+            Config.AutoMapperConfig.Inicializar();
+            var estoqueRep = new EstoqueRepository();
+            ICollection<Venda_Ativos> vendaAtivos = estoqueRep.PegarVendaAtivosDoProduto(idProduto);
+            var vendaAtivosDTO = Mapper.Map<ICollection<Venda_Ativos>, ICollection<VendaAtivosEstoqueDTO>>(vendaAtivos);
+            return vendaAtivosDTO;
+        }
+
+        public static ICollection<CompraAtivosEstoqueDTO> CompraAtivosProduto(int idProduto)
+        {
+            Config.AutoMapperConfig.Inicializar();
+            var estoqueRep = new EstoqueRepository();
+            ICollection<Compra_Ativos> compraAtivos = estoqueRep.PegarCompraAtivosDoProduto(idProduto);
+            var compraAtivosDTO = Mapper.Map<ICollection<Compra_Ativos>, ICollection<CompraAtivosEstoqueDTO>>(compraAtivos);
+            return compraAtivosDTO;
         }
 
         public static ICollection<PessoaJuridicaDTO> PessoasJuridicas()

@@ -18,10 +18,12 @@ namespace SuperERP.Web.Controllers
         }
 
         //
-        // GET: /EstoqueGeral/Detalhe/5
+        // GET: /EstoqueGeral/Inventario/5
 
-        public ActionResult Detalhe(int id)
+        public ActionResult Inventario(int id)
         {
+            ViewBag.vendaAtivos = Vendas.Listar.VendaAtivosProduto(id);
+            ViewBag.compraAtivos = Vendas.Listar.CompraAtivosProduto(id);
             return View();
         }
 
