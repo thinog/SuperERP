@@ -12,7 +12,7 @@ namespace SuperERP.Compras.Service
     {
         public static void Cadastra(EmpresaDto empresaDto)
         {
-            EmpresaRepository.Gravar();
+            //EmpresaRepository.Gravar();
 
         }
     }

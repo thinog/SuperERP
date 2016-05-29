@@ -12,7 +12,7 @@ namespace SuperERP.DAL.Repositories
         private  SuperERPContext dbContext = new SuperERPContext();
         public static void Gravar()
         {
-            dbContext.Empresas.Add();
+            //dbContext.Empresas.Add();
 
 
         }

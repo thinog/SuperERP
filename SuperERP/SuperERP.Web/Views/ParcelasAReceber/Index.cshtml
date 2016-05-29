@@ -67,14 +67,7 @@
                 @vencimento
             </td>
             <td>
-                @{  var cliente  = 0;
-                    if (item.Venda.ClienteFornecedor.PessoaJuridica != null){
-                        cliente = item.Venda.ClienteFornecedor.PessoaFisica.Nome;
-                    }else{
-                        cliente = item.Venda.ClienteFornecedor.ID_PJ;
-                    }
-                }
-                @cliente
+                @item.Venda.ClienteFornecedor.ID
             </td>
             <td>
                 @item.Venda.Venda_Num
@@ -107,6 +100,9 @@
             Vencimento
         </th>
         <th>
+            Cliente
+        </th>
+        <th>
             Venda
         </th>
         <th>
@@ -132,6 +128,9 @@
         <td>
             @{var vencimento = item.Data_Pagamento.ToShortDateString();}
             @vencimento
+        </td>
+        <td>
+            @item.Venda.ClienteFornecedor.ID
         </td>
         <td>
             @item.Venda.Venda_Num
@@ -169,6 +168,9 @@
             Vencimento
         </th>
         <th>
+            Cliente
+        </th>
+        <th>
             Venda
         </th>
         <th>
@@ -194,6 +196,9 @@
         <td>
             @{var vencimento = item.Data_Pagamento.ToShortDateString();}
             @vencimento
+        </td>
+        <td>
+            @item.Venda.ClienteFornecedor.ID
         </td>
         <td>
             @item.Venda.Venda_Num
