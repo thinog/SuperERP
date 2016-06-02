@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SuperERP.Vendas;
+using SuperERP.Vendas.DTO;
 
 namespace SuperERP.Compras.DTO
 {
-   public class ProdutoDTO
+    public class ProdutoDTO
     {
         public int ID { get; set; }
         public int ID_Empresa { get; set; }

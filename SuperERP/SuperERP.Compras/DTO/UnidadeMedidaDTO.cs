@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.DTO
 {
-    class UnidadeMedidaDTO
+    public class UnidadeMedidaDTO
     {
         public int ID { get; set; }
         public string Nome { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.DTO
 {
-    class ProdutoFornecedorDTO
+    public class ProdutoFornecedorDTO
     {
         public int ID { get; set; }
         public int ID_Produto { get; set; }
