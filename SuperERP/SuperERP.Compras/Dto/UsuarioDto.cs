@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperERP.Compras.Dto
+namespace SuperERP.Compras.DTO
 {
-   public class UsuarioDto
+   public class UsuarioDTO
     {
         public int ID { get; set; }
         public int ID_Perfil { get; set; }
