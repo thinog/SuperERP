@@ -15,8 +15,8 @@ namespace SuperERP.Compras.DTO
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public  Empresa Empresa { get; set; }
-        public  Perfil Perfil { get; set; }
+        public  EmpresaDTO Empresa { get; set; }
+        public  PerfilDTO Perfil { get; set; }
 
     }
 }
