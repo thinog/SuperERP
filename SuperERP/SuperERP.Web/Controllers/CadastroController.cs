@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SuperERP.Compras.Dto;
+using SuperERP.Compras.DTO;
 
 namespace SuperERP.Web.Controllers
 {
@@ -17,7 +17,7 @@ namespace SuperERP.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Empresa(EmpresaDto usurio)
+        public ActionResult Empresa(EmpresaDTO usurio)
 
         {
 
@@ -32,7 +32,7 @@ namespace SuperERP.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult Usuario(UsuarioDto usurio)
+        public ActionResult Usuario(UsuarioDTO usurio)
         {
            
             var teste = new List<string>();

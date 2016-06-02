@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,10 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\EmpresaDto.cs" />
-    <Compile Include="Dto\ProdutoDto.cs" />
-    <Compile Include="Dto\UsuarioDto.cs" />
-    <Compile Include="Dto\UsuarioEmpresaDto.cs" />
+    <Compile Include="Config\AutoMapperConfig.cs" />
+    <Compile Include="DTO\CategoriaDTO.cs" />
+    <Compile Include="DTO\ClienteFornecedorDTO.cs" />
+    <Compile Include="DTO\ComprasAtivoDTO.cs" />
+    <Compile Include="DTO\EmpresaDTO.cs" />
+    <Compile Include="DTO\NcmDTO.cs" />
+    <Compile Include="DTO\ProdutoDTO.cs" />
+    <Compile Include="DTO\ProdutoFornecedorDTO.cs" />
+    <Compile Include="DTO\UnidadeMedidaDTO.cs" />
+    <Compile Include="DTO\UsuarioDTO.cs" />
+    <Compile Include="DTO\UsuarioEmpresaDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\EmpresaService.cs" />
     <Compile Include="Service\UsuarioService.cs" />
@@ -53,8 +63,9 @@
       <Name>SuperERP.DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Mapping\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
