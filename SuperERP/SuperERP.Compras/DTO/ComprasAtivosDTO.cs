@@ -7,7 +7,7 @@ using SuperERP.Vendas;
 
 namespace SuperERP.Compras.DTO
 {
-    class CompraAtivoDTO
+    class CompraAtivosDTO
     {
         public int ID { get; set; }
         public int ID_Compra { get; set; }

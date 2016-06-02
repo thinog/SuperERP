@@ -33,7 +33,7 @@ namespace SuperERP.Compras.DTO
         public string ean { get; set; }
         public virtual CategoriaDTO Categoria { get; set; }
         public virtual ClienteFornecedorDTO ClienteFornecedor { get; set; }
-        public virtual ICollection<CompraAtivoDTO> Compra_Ativos { get; set; }
+        public virtual ICollection<CompraAtivosDTO> Compra_Ativos { get; set; }
         public virtual EmpresaDTO Empresa { get; set; }
         public virtual NcmDTO Ncm { get; set; }
         public virtual UnidadeMedidaDTO Unidade_Medida { get; set; }
