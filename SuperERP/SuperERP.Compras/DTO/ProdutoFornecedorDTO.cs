@@ -8,5 +8,11 @@ namespace SuperERP.Compras.DTO
 {
     class ProdutoFornecedorDTO
     {
+        public int ID { get; set; }
+        public int ID_Produto { get; set; }
+        public int ID_Fornecedor { get; set; }
+        public double Valor_Custo { get; set; }
+        public virtual ClienteFornecedorDTO ClienteFornecedor { get; set; }
+        public virtual ProdutoDTO Produto { get; set; }
     }
 }
