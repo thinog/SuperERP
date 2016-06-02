@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Teste
+namespace SuperERP.Compras.Dto
 {
-    public class Class1
+   public class ProdutoDto
     {
     }
 }

@@ -9,7 +9,7 @@ namespace SuperERP.DAL.Repositories
     {
         protected SuperERPContext dbContext = new SuperERPContext();
 
-        ICollection<T> IRepository<T>.ObterLista()
+        public ICollection<T> ObterLista()
         {
             return dbContext.Set<T>().ToList();
         }
@@ -41,7 +41,7 @@ namespace SuperERP.DAL.Repositories
                 dbContext.Set<T>().Remove(entidade);
                 dbContext.SaveChanges();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return false;
             }
@@ -56,7 +56,7 @@ namespace SuperERP.DAL.Repositories
                 dbContext.Set<T>().Remove(entidade);
                 dbContext.SaveChanges();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return false;
             }

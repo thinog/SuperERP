@@ -39,13 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\EmpresaDto.cs" />
+    <Compile Include="Dto\ProdutoDto.cs" />
+    <Compile Include="Dto\UsuarioDto.cs" />
+    <Compile Include="Dto\UsuarioEmpresaDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\EmpresaService.cs" />
+    <Compile Include="Service\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SuperERP.DAL\SuperERP.DAL.csproj">
       <Project>{42e4e633-93c0-4f93-91c7-85049b4ca2a5}</Project>
       <Name>SuperERP.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mapping\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
