@@ -8,5 +8,7 @@ namespace SuperERP.Compras.DTO
 {
     class NcmDTO
     {
+        public int ID { get; set; }
+        public string Codico { get; set; }}
     }
 }

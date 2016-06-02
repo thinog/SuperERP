@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\AutoMapperConfig.cs" />
-    <Compile Include="DTO\CategoriaDTO.cs" />
     <Compile Include="DTO\ClienteFornecedorDTO.cs" />
+    <Compile Include="DTO\CompraDTO.cs" />
     <Compile Include="DTO\ComprasAtivoDTO.cs" />
     <Compile Include="DTO\EmpresaDTO.cs" />
     <Compile Include="DTO\NcmDTO.cs" />
@@ -61,6 +61,10 @@
     <ProjectReference Include="..\SuperERP.DAL\SuperERP.DAL.csproj">
       <Project>{42e4e633-93c0-4f93-91c7-85049b4ca2a5}</Project>
       <Name>SuperERP.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuperERP.Vendas\SuperERP.Vendas.csproj">
+      <Project>{672ddd41-a3a6-4870-85cf-c0fef3ad8263}</Project>
+      <Name>SuperERP.Vendas</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

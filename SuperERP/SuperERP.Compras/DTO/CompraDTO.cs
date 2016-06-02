@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.DTO
 {
-    class CategoriaDTO
+    class CompraDTO
     {
     }
 }

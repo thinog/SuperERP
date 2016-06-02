@@ -8,5 +8,7 @@ namespace SuperERP.Compras.DTO
 {
     class UnidadeMedidaDTO
     {
+        public int ID { get; set; }
+        public string Nome { get; set; }
     }
 }

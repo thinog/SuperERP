@@ -17,7 +17,5 @@ namespace SuperERP.Compras.DTO
         public string Complemento { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
-
-
     }
 }
