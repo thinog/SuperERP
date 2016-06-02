@@ -47,28 +47,20 @@ namespace SuperERP.Web.Controllers
                 return View();
             }
         }
-
-        //
-        // GET: /ParcelasAReceber/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
         //
         // POST: /ParcelasAReceber/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        //[HttpPost]
+        public ActionResult Receber(int id)
         {
             try
             {
                 // TODO: Add update logic here
-
+                Vendas.Alterar.Parcela(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

@@ -31,10 +31,21 @@ namespace SuperERP.Vendas
             return new List<PessoaJuridicaDTO>();
         }
 
-        public static ICollection<Parcelamento> Parcelamentos()
+        public static ICollection<ParcelamentoDTO> Parcelamentos()
         {
+            Config.AutoMapperConfig.Inicializar();
             var parcelamentos = new ParcelasAReceberRepositorio();
-            return parcelamentos.PegarTodasParcelas();
+            var parcelas = parcelamentos.PegarTodasParcelas();
+            var p = Mapper.Map<ICollection<Parcelamento>, ICollection<ParcelamentoDTO>>(parcelas);
+            return p;
+        }
+        public static ParcelamentoDTO Parcelamento(int id)
+        {
+            Config.AutoMapperConfig.Inicializar();
+            var parcelamentosRep = new ParcelasAReceberRepositorio();
+            var parcela = parcelamentosRep.PegarParcela(id);
+            var p = Mapper.Map<Parcelamento, ParcelamentoDTO>(parcela);
+            return p;
         }
 
         public static PessoaJuridicaDTO PessoaJuridica()

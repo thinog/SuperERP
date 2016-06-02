@@ -12,9 +12,30 @@ namespace SuperERP.DAL.Repositories
     {
         public ICollection<Parcelamento> PegarTodasParcelas()
         {
-            var parcela = dbContext.Parcelamentoes.Include(x => x.Venda.ClienteFornecedor);           
+            var parcelas = dbContext.Parcelamentoes.Include(x => x.Venda.ClienteFornecedor);
+            return parcelas.ToList();
+        }
 
-            return parcela.ToList();
+        public Parcelamento PegarParcela( int id )
+        {
+            var parcela = dbContext.Parcelamentoes.Where(x => x.ID == id).FirstOrDefault();
+
+            return parcela;
+        }
+        public bool ReceberParcela(Parcelamento parcela)
+        {
+            Parcelamento parcelaAlterada = dbContext.Parcelamentoes.Where(p => p.ID == parcela.ID).FirstOrDefault();
+            parcela.Pago = true;
+            parcela.Data_Pago = System.DateTime.Now;
+
+            if (parcelaAlterada != null)
+            {
+                dbContext.Entry(parcelaAlterada).CurrentValues.SetValues(parcela);
+            }else{return false;}
+
+            dbContext.SaveChanges();
+            
+            return true;
         }
     }
 }

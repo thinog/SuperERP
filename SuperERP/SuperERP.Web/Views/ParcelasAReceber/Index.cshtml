@@ -1,21 +1,16 @@
-﻿@model IEnumerable<SuperERP.DAL.Models.Parcelamento>
+﻿@model IEnumerable<SuperERP.Vendas.DTO.ParcelamentoDTO>
 
 @{
     ViewBag.Title = "Index";
 }
-
+<style>
+    .atrasado{background:#e34;color:white;}
+</style>
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Compra.Observacoes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Venda.Observacoes)
+            @Html.DisplayNameFor(model => model.ID_Venda)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Numero_Parcela)
@@ -35,19 +30,17 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+@foreach (var item in Model)
+{
+    <tr class="@(item.Pago==false ? "atrasado":"")">
         <td>
-            @Html.DisplayFor(modelItem => item.Compra.Observacoes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Venda.Observacoes)
+            @Html.DisplayFor(modelItem => item.ID_Venda)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Numero_Parcela)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Valor)
+            R$@Html.DisplayFor(modelItem => item.Valor)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Pago)
@@ -56,12 +49,10 @@
             @Html.DisplayFor(modelItem => item.Data_Pagamento)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Data_Pago)
+            @(item.Data_Pago != null ? "Não Pago" : @Html.DisplayFor(modelItem => item.Data_Pago) )
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Recebido", "Receber", new { id = item.ID })
         </td>
     </tr>
 }

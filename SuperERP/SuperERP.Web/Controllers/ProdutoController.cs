@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SuperERP.Compras;
-using SuperERP.DAL.Repositories;
-using SuperERP.DAL.Models;
+//using SuperERP.DAL.Repositories;
+//using SuperERP.DAL.Models;
 
 namespace SuperERP.Web.Controllers
 {
@@ -97,11 +97,12 @@ namespace SuperERP.Web.Controllers
 
         public ActionResult GetProdutos()
         {
-            var lista = new List<Produto>();
-            var item = new Produto();
-            item.ID = 1;
-            lista.Add(item);
-            return Json(lista, JsonRequestBehavior.AllowGet);
+            //var lista = new List<Produto>();
+            //var item = new Produto();
+            //item.ID = 1;
+            //lista.Add(item);
+            //return Json(lista, JsonRequestBehavior.AllowGet);
+            return Json(new {}, JsonRequestBehavior.AllowGet);
         }
     }
 }

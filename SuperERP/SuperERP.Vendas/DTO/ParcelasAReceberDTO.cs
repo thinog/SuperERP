@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Vendas.DTO
 {
-    class ParcelasAReceberDTO
+    public class ParcelasAReceberDTO
     {
         public int ID { get; set; }
         public int ID_Venda { get; set; }

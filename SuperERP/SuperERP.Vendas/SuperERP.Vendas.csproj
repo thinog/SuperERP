@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alterar.cs" />
     <Compile Include="Cadastro.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
+    <Compile Include="DTO\ParcelamentoDTO.cs" />
     <Compile Include="DTO\ParcelasAReceberDTO.cs" />
     <Compile Include="DTO\ParcelasRecebidasDTO.cs" />
     <Compile Include="DTO\ParcelasVencidasDTO.cs" />
