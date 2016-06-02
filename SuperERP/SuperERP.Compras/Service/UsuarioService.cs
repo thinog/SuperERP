@@ -1,4 +1,4 @@
-﻿using SuperERP.Compras.Dto;
+﻿using SuperERP.Compras.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace SuperERP.Compras.Service
 {
     class UsuarioService
     {
-        public void salvar(UsuarioDto usuario)
+        public void salvar(UsuarioDTO usuario)
         {
 
         }
