@@ -25,6 +25,15 @@ namespace SuperERP.Vendas
             return new PessoaFisicaDTO();
         }
 
+        //public static ICollection<CategoriaDTO> CategoriasServico()
+        public static void CategoriasServico()
+        {
+            var categoriasRep = new DAL.Repositories.CategoriaRepositorio();
+            //var categorias = categoriasRep.PegarTodasCategorias(true).ToList();
+            //var c = Mapper.Map<List<Categoria>, List<CategoriaDTO>>(categorias);
+            //return new ICollection<CategoriaDTO>();
+        }
+
         public static ICollection<ProdutoEstoqueDTO> Estoque()
         {
             Config.AutoMapperConfig.Inicializar();
