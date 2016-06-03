@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.Service
 {
-    class UsuarioService
+   public class UsuarioService
     {
         public static void Cadastrar(UsuarioDTO usuario)
         {
             ServicoGenerico<Usuario, UsuarioDTO>.Cadastrar(usuario);
+
         }
         public static void Alterar(UsuarioDTO usuario)
         {

@@ -1,4 +1,5 @@
-﻿using SuperERP.Compras.DTO;
+﻿using AutoMapper;
+using SuperERP.Compras.DTO;
 using SuperERP.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,18 @@ namespace SuperERP.Compras.Config
         public static void ConverteDTOParaModel()
         {
             AutoMapper.Mapper.CreateMap<EmpresaDTO, Empresa>();
+            AutoMapper.Mapper.CreateMap<PerfilDTO, Perfil>();
+            AutoMapper.Mapper.CreateMap<FuncionalidadeDTO, Funcionalidade>();
             AutoMapper.Mapper.CreateMap<ProdutoDTO, Produto>();
             AutoMapper.Mapper.CreateMap<UsuarioDTO, Usuario>();
+         
         }
 
         public static void ConverteModelParaDTO()
         {
             AutoMapper.Mapper.CreateMap<Empresa, EmpresaDTO>();
+            AutoMapper.Mapper.CreateMap<Perfil, PerfilDTO >();
+            AutoMapper.Mapper.CreateMap<Funcionalidade, FuncionalidadeDTO>();
             AutoMapper.Mapper.CreateMap<Produto, ProdutoDTO>();
             AutoMapper.Mapper.CreateMap<Usuario, UsuarioDTO>();
         }

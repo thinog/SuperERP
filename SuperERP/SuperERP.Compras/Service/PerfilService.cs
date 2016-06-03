@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.Service
 {
-    class PerfilService
+    public class PerfilService
     {
         public static void Cadastrar(PerfilDTO perfil)
         {
