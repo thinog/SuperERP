@@ -28,5 +28,10 @@ namespace SuperERP.Compras.Service
         {
             ServicoGenerico<Produto, ProdutoDTO>.Deletar(IDProduto);
         }
+
+        public static ProdutoDTO BuscaPorId(int IdProduto)
+        {
+            return ServicoGenerico<Produto, ProdutoDTO>.BuscaPorId(IdProduto);
+        }
     }
 }
