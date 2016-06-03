@@ -10,11 +10,11 @@ namespace SuperERP.Compras.DTO
     public class ProdutoDTO
     {
         public int ID { get; set; }
-        public int ID_Empresa { get; set; }
-        public int ID_Categoria { get; set; }
-        public Nullable<int> ID_Cliente { get; set; }
-        public Nullable<int> ID_Ncm { get; set; }
-        public Nullable<int> ID_Unidade_Medida { get; set; }
+        public int IDEmpresa { get; set; }
+        public int IDCategoria { get; set; }
+        public Nullable<int> IDCliente { get; set; }
+        public Nullable<int> IDNcm { get; set; }
+        public Nullable<int> IDUnidadeMedida { get; set; }
         public double ICMS { get; set; }
         public double IPI { get; set; }
         public double IVA { get; set; }
@@ -22,21 +22,21 @@ namespace SuperERP.Compras.DTO
         public double PIS { get; set; }
         public double COFINS { get; set; }
         public string Nome { get; set; }
-        public int Codigo_Cliente { get; set; }
-        public int Codigo_Barras { get; set; }
-        public double Valor_Venda { get; set; }
+        public int CodigoCliente { get; set; }
+        public int CodigoBarras { get; set; }
+        public double ValorVenda { get; set; }
         public int Estoque { get; set; }
         public int EstoqueMax { get; set; }
         public int EstoqueMin { get; set; }
-        public Nullable<double> Peso_Liquido { get; set; }
-        public Nullable<double> Peso_Bruto { get; set; }
+        public Nullable<double> PesoLiquido { get; set; }
+        public Nullable<double> PesoBruto { get; set; }
         public string ean { get; set; }
         public virtual CategoriaDTO Categoria { get; set; }
         public virtual ClienteFornecedorDTO ClienteFornecedor { get; set; }
-        public virtual ICollection<CompraAtivosDTO> Compra_Ativos { get; set; }
+        public virtual ICollection<CompraAtivosDTO> CompraAtivos { get; set; }
         public virtual EmpresaDTO Empresa { get; set; }
         public virtual NcmDTO Ncm { get; set; }
-        public virtual UnidadeMedidaDTO Unidade_Medida { get; set; }
+        public virtual UnidadeMedidaDTO UnidadeMedida { get; set; }
         public virtual ICollection<ProdutoFornecedorDTO> ProdutoFornecedors { get; set; }
     }
 }
