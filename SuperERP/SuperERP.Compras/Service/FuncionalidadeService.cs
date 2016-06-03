@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.Service
 {
-    class FuncionalidadeService
+    public class FuncionalidadeService
     {
         public static void Cadastrar(FuncionalidadeDTO funcionalidade)
         {
