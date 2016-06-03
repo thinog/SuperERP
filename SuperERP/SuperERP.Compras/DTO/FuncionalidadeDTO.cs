@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SuperERP.Compras.DTO
 {
-    class FuncionalidadeDTO
+    public class FuncionalidadeDTO
     {
         public int ID { get; set; }
         public string Nome { get; set; }

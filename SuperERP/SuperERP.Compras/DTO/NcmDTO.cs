@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Compras.DTO
 {
-    class NcmDTO
+    public class NcmDTO
     {
         public int ID { get; set; }
-        public string Codico { get; set; }}
+        public string Codico { get; set; }
     }
 }
