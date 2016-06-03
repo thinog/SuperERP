@@ -34,6 +34,20 @@ namespace SuperERP.DAL.Repositories
             return true;
         }
 
+        public bool Alterar(T entidade)
+        {
+            try
+            {
+                dbContext.Entry(entidade).State = System.Data.Entity.EntityState.Modified;
+                dbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
         public bool Deletar(T entidade)
         {
             try
