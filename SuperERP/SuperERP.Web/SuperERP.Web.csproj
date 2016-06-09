@@ -202,6 +202,7 @@
     <Content Include="Views\EstoqueGeral\Inventario.cshtml" />
     <Content Include="Views\Servico\Create.cshtml" />
     <Content Include="Views\Servico\Index.cshtml" />
+    <Content Include="Views\Cadastro\Empresa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

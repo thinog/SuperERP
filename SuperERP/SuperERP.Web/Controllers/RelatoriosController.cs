@@ -3,42 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SuperERP.Compras;
-using SuperERP.Compras.DTO;
-
 
 namespace SuperERP.Web.Controllers
 {
-    public class ProdutoController : Controller
+    public class RelatoriosController : Controller
     {
+        //
+        // GET: /Relatorios/
         public ActionResult Index()
         {
-            var lista = Compras.Service.ProdutoService.Listar();
-            return View(lista);
+            return View();
         }
 
         //
-        // GET: /Produto/Details/5
+        // GET: /Relatorios/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
         //
-        // GET: /Produto/Create
+        // GET: /Relatorios/Create
         public ActionResult Create()
         {
             return View();
         }
 
         //
-        // POST: /Produto/Create
+        // POST: /Relatorios/Create
         [HttpPost]
-        public ActionResult Create(ProdutoDTO produto)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                Compras.Service.ProdutoService.Cadastrar(produto);
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
             catch
@@ -48,20 +47,21 @@ namespace SuperERP.Web.Controllers
         }
 
         //
-        // GET: /Produto/Edit/5
+        // GET: /Relatorios/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         //
-        // POST: /Produto/Edit/5
+        // POST: /Relatorios/Edit/5
         [HttpPost]
-        public ActionResult Edit(ProdutoDTO produto)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                Compras.Service.ProdutoService.Alterar(produto);
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
             catch
@@ -70,19 +70,28 @@ namespace SuperERP.Web.Controllers
             }
         }
 
-        [HttpGet]
+        //
+        // GET: /Relatorios/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         //
-        // POST: /Produto/Delete/5
+        // POST: /Relatorios/Delete/5
         [HttpPost]
-        public ActionResult Delete(ProdutoDTO produto)
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            Compras.Service.ProdutoService.Deletar(produto.ID);
-            return View();
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }
