@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperERP.DAL.Models;
 
-namespace SuperERP.Compras.Repository
+namespace SuperERP.DAL.Repositories
 {
-    class UsuarioRepository
+    class ServicoRepositorio : Repositorio<Servico>
     {
     }
 }

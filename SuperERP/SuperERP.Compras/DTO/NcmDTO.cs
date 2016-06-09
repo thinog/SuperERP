@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Teste
+namespace SuperERP.Compras.DTO
 {
-    public class Class1
+    public class NcmDTO
     {
+        public int ID { get; set; }
+        public string Codico { get; set; }
     }
 }
