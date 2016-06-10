@@ -26,9 +26,12 @@ namespace SuperERP.Web.Controllers
         // GET: /Servico/Create
         public ActionResult Create()
         {
+
+
             //TODO: Como pegar a lista de catgegorias para montar um dropdown?
             //ViewBag.ID_Categoria = new SelectList(Vendas.DTO.)
-            //ViewBag.CategoriaList = new SelectList(Vendas.Listar.CategoriasServico());
+            ViewBag.ID_Categoria_Servico = new SelectList(Vendas.Listar.CategoriasServico(), "ID", "Nome");
+            ViewBag.ID_Empresa = new SelectList(Vendas.Listar.Empresas(), "ID", "Nome");
             return View();
         }
 

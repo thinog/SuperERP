@@ -31,10 +31,18 @@ namespace SuperERP.Compras.Service
             var estoqueDTO = Mapper.Map<ICollection<T>, ICollection<TDTO>>(listaProdutoDTO);
             return estoqueDTO;
         }
-        public static void Deletar(int IDProduto)
+        public static void Deletar(int IdEntidade)
         {
             var repositorio = new DAL.Repositories.Repositorio<T>();
-            repositorio.Deletar(IDProduto);
+            repositorio.Deletar(IdEntidade);
+        }
+
+        public static TDTO BuscaPorId(int IdEntidade)
+        {
+            var repositorio = new DAL.Repositories.Repositorio<T>();
+            var entidade = repositorio.ObterPorEntidadePorId(IdEntidade);
+            var entidadeDTO = Mapper.Map<T, TDTO>(entidade);
+            return entidadeDTO;
         }
     }
 }
