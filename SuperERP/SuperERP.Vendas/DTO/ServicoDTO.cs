@@ -19,9 +19,5 @@ namespace SuperERP.Vendas.DTO
         public double COFINS { get; set; }
         public Nullable<double> valor { get; set; }
         public Nullable<double> custo { get; set; }
-    //    public virtual Categoria Categoria { get; set; }
-  //      public virtual Empresa Empresa { get; set; }
-
-
     }
 }

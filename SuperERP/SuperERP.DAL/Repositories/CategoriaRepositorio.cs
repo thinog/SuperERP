@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace SuperERP.DAL.Repositories
@@ -17,5 +18,8 @@ namespace SuperERP.DAL.Repositories
             var categorias = dbContext.Categorias.Where(c => c.CategoriaTipo == tipo);
             return categorias.ToList();
         }
+
+   
+
     }
 }
