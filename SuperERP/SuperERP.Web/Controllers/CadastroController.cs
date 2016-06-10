@@ -17,7 +17,7 @@ namespace SuperERP.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Empresa(EmpresaDTO empresa)
+        public ActionResult Empresa(Compras.DTO.EmpresaDTO empresa)
 
         {
             Compras.Service.EmpresaService.Cadastrar(empresa);
