@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.Financeiro.DTO
 {
-    public class ContasPagarDTO
+    class ContasBancoDTO
     {
-                
     }
 }
