@@ -6,13 +6,7 @@ create table Empresa(
 	ID INT identity  NOT NULL PRIMARY KEY,
 	Nome VARCHAR(50) NOT NULL,
 	CNPJ VARCHAR(15) NOT NULL,
-	RazaoSocial VARCHAR(30) NOT NULL,
-	CEP VARCHAR(8) NOT NULL,
-	Endereco VARCHAR(64) NOT NULL,
-	Numero VARCHAR(4) NOT NULL,
-	Complemento VARCHAR(30) NOT NULL,
-	Bairro VARCHAR(30) NOT NULL,
-	Cidade VARCHAR(30) NOT NULL
+	RazaoSocial VARCHAR(30) NOT NULL
 );
 go
 create table Perfil(
@@ -42,15 +36,6 @@ create table Usuario(
 	Senha VARCHAR(60) not null,
 	CONSTRAINT FK_Usuario_Perfil FOREIGN KEY(ID_Perfil) REFERENCES Perfil (ID),
 	CONSTRAINT FK_Usuario_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID)
-);
-go
-CREATE TABLE Dados_Bancarios(
-	ID INT identity NOT NULL PRIMARY KEY,	
-	ID_Empresa int not null,
-	Banco VARCHAR(40) NOT NULL,
-	Conta_Corrente VARCHAR(20) NOT NULL,
-	Agencia VARCHAR(10) NOT NULL,
-	CONSTRAINT FK_DadosBancarios_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID)
 );
 go
 CREATE TABLE Status_Servico(
@@ -102,6 +87,8 @@ CREATE TABLE DadosBancarios(
 	Agencia VARCHAR(10) NOT NULL,
 	ID_PessoaJuridica INT NULL,
 	ID_PessoaFisica INT NULL,
+	ID_Empresa int null,
+	CONSTRAINT FK_DadosBancarios_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID),
 	CONSTRAINT FK_DadosBancarios_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
 	CONSTRAINT FK_DadosBancarios_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
@@ -123,11 +110,13 @@ CREATE TABLE Endereco(
 	CEP VARCHAR(8) NOT NULL,
 	ID_PessoaJuridica INT NULL,
 	ID_PessoaFisica INT NULL,
+	ID_Empresa int null,
 	Endereco VARCHAR(64) NOT NULL,
 	Numero VARCHAR(4) NOT NULL,
 	Complemento VARCHAR(30) NOT NULL,
 	Bairro VARCHAR(30) NOT NULL,
 	Cidade VARCHAR(30) NOT NULL,
+	CONSTRAINT FK_Endereco_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID),
 	CONSTRAINT FK_Endereco_PJ FOREIGN KEY(ID_PessoaJuridica) REFERENCES PessoaJuridica(ID),
 	CONSTRAINT FK_Endereco_PF FOREIGN KEY(ID_PessoaFisica) REFERENCES PessoaFisica(ID)
 );
@@ -240,7 +229,7 @@ CREATE TABLE Compra(
 	ID_FormaPgto INT NOT NULL,
 	Observacoes VARCHAR(300) NOT NULL,
 	ID_conta INT NOT NULL,
-	CONSTRAINT FK_Compra_CC FOREIGN KEY(ID_conta) REFERENCES Dados_Bancarios(ID),
+	CONSTRAINT FK_Compra_CC FOREIGN KEY(ID_conta) REFERENCES DadosBancarios(ID),
 	CONSTRAINT FK_Compra_Cliente FOREIGN KEY(ID_Fornecedor) REFERENCES ClienteFornecedor(ID),
 	CONSTRAINT FK_Compra_Status FOREIGN KEY(ID_Status) REFERENCES Status_Venda(ID),
 	CONSTRAINT FK_Compra_FormaPgto FOREIGN KEY(ID_FormaPgto) REFERENCES Forma_Pgto(ID),
@@ -277,7 +266,7 @@ CREATE TABLE Venda(
 	Observacoes VARCHAR(300) NOT NULL,
 	CONSTRAINT FK_Venda_Cliente FOREIGN KEY(ID_Cliente) REFERENCES ClienteFornecedor(ID),
 	CONSTRAINT FK_Venda_Status FOREIGN KEY(ID_Status) REFERENCES Status_Venda(ID),
-	CONSTRAINT FK_Venda_CC FOREIGN KEY(ID_conta) REFERENCES Dados_Bancarios(ID),
+	CONSTRAINT FK_Venda_CC FOREIGN KEY(ID_conta) REFERENCES DadosBancarios(ID),
 	CONSTRAINT FK_Venda_Orcamento FOREIGN KEY(ID_Orcamento) REFERENCES Venda(ID),
 	CONSTRAINT FK_Venda_FormaPgto FOREIGN KEY(ID_FormaPgto) REFERENCES Forma_Pgto(ID),
 	CONSTRAINT FK_Venda_Empresa FOREIGN KEY(ID_Empresa) REFERENCES Empresa(ID),
