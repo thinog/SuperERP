@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace SuperERP.DAL.Models.Mapping
 {
-    public class Status_ServicoMap : EntityTypeConfiguration<Status_Servico>
+    public class Status_ServicoMap : EntityTypeConfiguration<StatusServico>
     {
         public Status_ServicoMap()
         {

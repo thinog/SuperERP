@@ -7,9 +7,9 @@ namespace SuperERP.DAL.Models
     {
         public Servico()
         {
-            this.Compra_Ativos = new List<Compra_Ativos>();
-            this.Ordem_Servico = new List<Ordem_Servico>();
-            this.Venda_Ativos = new List<Venda_Ativos>();
+            this.Compra_Ativos = new List<CompraAtiva>();
+            this.Ordem_Servico = new List<OrdemServico>();
+            this.Venda_Ativos = new List<VendasAtivas>();
         }
 
         public int ID { get; set; }
@@ -27,9 +27,9 @@ namespace SuperERP.DAL.Models
         public Nullable<double> custo { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual ClienteFornecedor ClienteFornecedor { get; set; }
-        public virtual ICollection<Compra_Ativos> Compra_Ativos { get; set; }
+        public virtual ICollection<CompraAtiva> Compra_Ativos { get; set; }
         public virtual Empresa Empresa { get; set; }
-        public virtual ICollection<Ordem_Servico> Ordem_Servico { get; set; }
-        public virtual ICollection<Venda_Ativos> Venda_Ativos { get; set; }
+        public virtual ICollection<OrdemServico> Ordem_Servico { get; set; }
+        public virtual ICollection<VendasAtivas> Venda_Ativos { get; set; }
     }
 }

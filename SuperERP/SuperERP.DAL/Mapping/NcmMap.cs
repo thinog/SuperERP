@@ -8,7 +8,7 @@ namespace SuperERP.DAL.Models.Mapping
         public NcmMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.Id);
 
             // Properties
             this.Property(t => t.Codico)
@@ -17,7 +17,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("Ncm");
-            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.Id).HasColumnName("ID");
             this.Property(t => t.Codico).HasColumnName("Codico");
         }
     }

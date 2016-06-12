@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.ModelConfiguration;
 
 namespace SuperERP.DAL.Models.Mapping
@@ -8,7 +7,7 @@ namespace SuperERP.DAL.Models.Mapping
         public PessoaFisicaMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.Id);
 
             // Properties
             this.Property(t => t.Nome)
@@ -25,17 +24,16 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("PessoaFisica");
-            this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
+            this.Property(t => t.Id).HasColumnName("ID");
+            this.Property(t => t.IdEmpresa).HasColumnName("ID_Empresa");
             this.Property(t => t.Nome).HasColumnName("Nome");
             this.Property(t => t.CPF).HasColumnName("CPF");
             this.Property(t => t.RG).HasColumnName("RG");
 
             // Relationships
             this.HasRequired(t => t.Empresa)
-                .WithMany(t => t.PessoaFisicas)
-                .HasForeignKey(d => d.ID_Empresa);
-
+                .WithMany(t => t.PessoasFisicas)
+                .HasForeignKey(d => d.IdEmpresa);
         }
     }
 }

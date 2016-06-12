@@ -8,15 +8,15 @@ namespace SuperERP.DAL.Models.Mapping
         public ParcelamentoMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.Id);
 
             // Properties
             // Table & Column Mappings
             this.ToTable("Parcelamento");
-            this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.ID_Compra).HasColumnName("ID_Compra");
-            this.Property(t => t.ID_Venda).HasColumnName("ID_Venda");
-            this.Property(t => t.Numero_Parcela).HasColumnName("Numero_Parcela");
+            this.Property(t => t.Id).HasColumnName("ID");
+            this.Property(t => t.IdCompra).HasColumnName("ID_Compra");
+            this.Property(t => t.IdVenda).HasColumnName("ID_Venda");
+            this.Property(t => t.NumeroParcela).HasColumnName("Numero_Parcela");
             this.Property(t => t.Valor).HasColumnName("Valor");
             this.Property(t => t.Pago).HasColumnName("Pago");
             this.Property(t => t.Data_Pagamento).HasColumnName("Data_Pagamento");
@@ -24,11 +24,11 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.Compra)
-                .WithMany(t => t.Parcelamentoes)
-                .HasForeignKey(d => d.ID_Compra);
+                .WithMany(t => t.Parcelamentos)
+                .HasForeignKey(d => d.IdCompra);
             this.HasRequired(t => t.Venda)
                 .WithMany(t => t.Parcelamentoes)
-                .HasForeignKey(d => d.ID_Venda);
+                .HasForeignKey(d => d.IdVenda);
 
         }
     }

@@ -1,33 +1,21 @@
-using System.ComponentModel.DataAnnotations;
+﻿using SuperERP.DAL.Models;
 using System.Data.Entity.ModelConfiguration;
 
-namespace SuperERP.DAL.Models.Mapping
+namespace SuperERP.DAL.Mapping
 {
-    public class EmpresaMap : EntityTypeConfiguration<Empresa>
+    public class EnderecoMap : EntityTypeConfiguration<Endereco>
     {
-        public EmpresaMap()
+        public EnderecoMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);
 
             // Properties
-            this.Property(t => t.Nome)
-                .IsRequired()
-                .HasMaxLength(50);
-
-            this.Property(t => t.CNPJ)
-                .IsRequired()
-                .HasMaxLength(15);
-
-            this.Property(t => t.RazaoSocial)
-                .IsRequired()
-                .HasMaxLength(30);
-
             this.Property(t => t.CEP)
                 .IsRequired()
                 .HasMaxLength(8);
 
-            this.Property(t => t.Endereco)
+            this.Property(t => t.Endereco1)
                 .IsRequired()
                 .HasMaxLength(64);
 
@@ -48,17 +36,25 @@ namespace SuperERP.DAL.Models.Mapping
                 .HasMaxLength(30);
 
             // Table & Column Mappings
-            this.ToTable("Empresa");
+            this.ToTable("Endereco");
             this.Property(t => t.Id).HasColumnName("ID");
-            this.Property(t => t.Nome).HasColumnName("Nome");
-            this.Property(t => t.CNPJ).HasColumnName("CNPJ");
-            this.Property(t => t.RazaoSocial).HasColumnName("RazaoSocial");
             this.Property(t => t.CEP).HasColumnName("CEP");
-            this.Property(t => t.Endereco).HasColumnName("Endereco");
+            this.Property(t => t.IdPessoaJuridica).HasColumnName("ID_PessoaJuridica");
+            this.Property(t => t.IdPessoaFisica).HasColumnName("ID_PessoaFisica");
+            this.Property(t => t.Endereco1).HasColumnName("Endereco");
             this.Property(t => t.Numero).HasColumnName("Numero");
             this.Property(t => t.Complemento).HasColumnName("Complemento");
             this.Property(t => t.Bairro).HasColumnName("Bairro");
             this.Property(t => t.Cidade).HasColumnName("Cidade");
+
+            // Relationships
+            this.HasOptional(t => t.PessoaFisica)
+                .WithMany(t => t.Enderecos)
+                .HasForeignKey(d => d.IdPessoaFisica);
+            this.HasOptional(t => t.PessoaJuridica)
+                .WithMany(t => t.Enderecoes)
+                .HasForeignKey(d => d.IdPessoaJuridica);
+
         }
     }
 }

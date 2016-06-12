@@ -3,21 +3,17 @@ using System.Collections.Generic;
 
 namespace SuperERP.DAL.Models
 {
-    public partial class Dados_Bancarios
+    public partial class StatusVenda
     {
-        public Dados_Bancarios()
+        public StatusVenda()
         {
             this.Compras = new List<Compra>();
             this.Vendas = new List<Venda>();
         }
 
         public int ID { get; set; }
-        public int ID_Empresa { get; set; }
-        public string Banco { get; set; }
-        public string Conta_Corrente { get; set; }
-        public string Agencia { get; set; }
+        public string Nome { get; set; }
         public virtual ICollection<Compra> Compras { get; set; }
-        public virtual Empresa Empresa { get; set; }
         public virtual ICollection<Venda> Vendas { get; set; }
     }
 }
