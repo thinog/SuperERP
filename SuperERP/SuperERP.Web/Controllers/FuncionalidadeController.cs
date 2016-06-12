@@ -23,8 +23,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Incluir(FuncionalidadeDTO funcionalidade)
         {
-            Compras.Service.FuncionalidadeService.Cadastrar(funcionalidade);
-            return View();
+            try
+            {
+                Compras.Service.FuncionalidadeService.Cadastrar(funcionalidade);
+                return RedirectToAction("Index");
+            }
+            catch(Exception)
+            {
+                return View();
+            }
         }
 
         public ActionResult Alterar(int funcionalidadeID)
@@ -35,8 +42,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Alterar(FuncionalidadeDTO funcionalidade)
         {
-            Compras.Service.FuncionalidadeService.Alterar(funcionalidade);
-            return View();
+            try
+            {
+                Compras.Service.FuncionalidadeService.Alterar(funcionalidade);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         public ActionResult Excluir(int funcionalidadeID)
@@ -47,8 +61,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Excluir(FuncionalidadeDTO funcionalidade)
         {
-            Compras.Service.FuncionalidadeService.Deletar(funcionalidade.ID);
-            return View();
+            try
+            {
+                Compras.Service.FuncionalidadeService.Deletar(funcionalidade.ID);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
     }
 }

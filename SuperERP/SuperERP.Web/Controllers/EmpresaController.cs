@@ -23,8 +23,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Incluir(EmpresaDTO empresa)
         {
-            Compras.Service.EmpresaService.Cadastrar(empresa);
-            return View();
+            try
+            {
+                Compras.Service.EmpresaService.Cadastrar(empresa);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         public ActionResult Alterar(int empresaID)
@@ -35,8 +42,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Alterar(EmpresaDTO empresa)
         {
-            Compras.Service.EmpresaService.Alterar(empresa);
-            return View();
+            try
+            {
+                Compras.Service.EmpresaService.Alterar(empresa);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         public ActionResult Excluir(int empresaID)
@@ -47,8 +61,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Excluir(UsuarioDTO empresa)
         {
-            Compras.Service.EmpresaService.Deletar(empresa.ID);
-            return View();
+            try
+            {
+                Compras.Service.EmpresaService.Deletar(empresa.ID);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
     }
 }
