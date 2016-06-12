@@ -219,11 +219,14 @@
     <Content Include="Views\Perfil\Incluir.cshtml" />
     <Content Include="Views\Perfil\Alterar.cshtml" />
     <Content Include="Views\Perfil\Excluir.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Empresa\Incluir.cshtml" />
+    <Content Include="Views\Empresa\Alterar.cshtml" />
+    <Content Include="Views\Empresa\Excluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Empresa\" />
     <Folder Include="Views\Financeiro\" />
     <Folder Include="Views\Vendas\" />
   </ItemGroup>
