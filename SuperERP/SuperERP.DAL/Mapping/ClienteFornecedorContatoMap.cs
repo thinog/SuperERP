@@ -11,34 +11,20 @@ namespace SuperERP.DAL.Models.Mapping
             this.HasKey(t => t.ID);
 
             // Properties
-            this.Property(t => t.Nome)
-                .IsRequired()
-                .HasMaxLength(60);
-
-            this.Property(t => t.Email)
-                .IsRequired()
-                .HasMaxLength(64);
-
-            this.Property(t => t.Fone)
-                .IsRequired()
-                .HasMaxLength(15);
-
-            this.Property(t => t.Cargo)
-                .HasMaxLength(30);
-
             // Table & Column Mappings
-            this.ToTable("ClienteFornecedorContato");
+            this.ToTable("ClienteFornecedor");
             this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.Nome).HasColumnName("Nome");
-            this.Property(t => t.ID_Fornecedor).HasColumnName("ID_Fornecedor");
-            this.Property(t => t.Email).HasColumnName("Email");
-            this.Property(t => t.Fone).HasColumnName("Fone");
-            this.Property(t => t.Cargo).HasColumnName("Cargo");
+            this.Property(t => t.ID_PJ).HasColumnName("ID_PJ");
+            this.Property(t => t.ID_PF).HasColumnName("ID_PF");
+            this.Property(t => t.Tipo).HasColumnName("Tipo");
 
             // Relationships
-            this.HasRequired(t => t.ClienteFornecedor)
-                .WithMany(t => t.ClienteFornecedorContatoes)
-                .HasForeignKey(d => d.ID_Fornecedor);
+            this.HasOptional(t => t.PessoaFisica)
+                .WithMany(t => t.ClienteFornecedors)
+                .HasForeignKey(d => d.ID_PF);
+            this.HasOptional(t => t.PessoaJuridica)
+                .WithMany(t => t.ClienteFornecedors)
+                .HasForeignKey(d => d.ID_PJ);
 
         }
     }

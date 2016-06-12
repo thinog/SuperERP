@@ -8,7 +8,7 @@ namespace SuperERP.DAL.Models.Mapping
         public FuncionalidadeMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.Id);
 
             // Properties
             this.Property(t => t.Nome)
@@ -21,12 +21,12 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("Funcionalidades");
-            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.Id).HasColumnName("ID");
             this.Property(t => t.Nome).HasColumnName("Nome");
             this.Property(t => t.Descricao).HasColumnName("Descricao");
 
             // Relationships
-            this.HasMany(t => t.Perfils)
+            this.HasMany(t => t.Perfis)
                 .WithMany(t => t.Funcionalidades)
                 .Map(m =>
                     {
