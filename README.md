@@ -25,6 +25,8 @@ Usuario<br>
 Perfil<br>
 Funcionalidades<br>
 
+Equipe: @allima, @educcjr, @nicoli1992, @gerardoalcaire<br>
+
 ## Grupo 4 - Financeiro - Diogo
 Movimentações<br>
 Contas Bancarias<br>
