@@ -26,12 +26,31 @@ namespace SuperERP.Vendas
         }
 
         //public static ICollection<CategoriaDTO> CategoriasServico()
-        public static void CategoriasServico()
+        public static ICollection<CategoriaDTO> CategoriasServico()
         {
+            Config.AutoMapperConfig.Inicializar();
             var categoriasRep = new DAL.Repositories.CategoriaRepositorio();
-            //var categorias = categoriasRep.PegarTodasCategorias(true).ToList();
-            //var c = Mapper.Map<List<Categoria>, List<CategoriaDTO>>(categorias);
-            //return new ICollection<CategoriaDTO>();
+
+            var categorias = categoriasRep.PegarTodasCategorias(true);
+
+            var c = Mapper.Map<ICollection<Categoria>, ICollection<CategoriaDTO>>(categorias);
+
+            return c;
+        }
+
+        public static ICollection<EmpresaDTO> Empresas()
+        {
+
+            Config.AutoMapperConfig.Inicializar();
+
+            var empresaRep = new ServicoRepositorio();
+
+            var empresa = empresaRep.PegarEmpresa();
+
+            var e = Mapper.Map<ICollection<Empresa>, ICollection<EmpresaDTO>>(empresa);
+
+            return e;
+
         }
 
         public static ICollection<ProdutoEstoqueDTO> Estoque()

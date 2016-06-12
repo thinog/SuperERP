@@ -23,12 +23,12 @@ namespace SuperERP.DAL.Repositories
         {
             try
             {
-                dbContext.Set<T>().Add(entidade);
+                var d =  dbContext.Set<T>().Add(entidade);
+                
                 dbContext.SaveChanges();
             }
             catch (Exception)
             {
-
                 return false;
             }
             return true;

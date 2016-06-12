@@ -20,7 +20,11 @@ namespace SuperERP.Vendas.Config
             AutoMapper.Mapper.CreateMap<VendaAtivosEstoqueDTO, VendasAtivas>();
             AutoMapper.Mapper.CreateMap<CompraAtivosEstoqueDTO, CompraAtiva>();
             AutoMapper.Mapper.CreateMap<CategoriaDTO, Categoria>();
+            AutoMapper.Mapper.CreateMap<EmpresaDTO, Empresa>();
         }
+
+
+
 
         public static void ConverteModelParaDTO()
         {
@@ -32,6 +36,7 @@ namespace SuperERP.Vendas.Config
             AutoMapper.Mapper.CreateMap<VendasAtivas, VendaAtivosEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<CompraAtiva, CompraAtivosEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Categoria, CategoriaDTO>();
+            AutoMapper.Mapper.CreateMap<Empresa, EmpresaDTO>();
         }
     }
 }
