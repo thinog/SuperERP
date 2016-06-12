@@ -23,8 +23,16 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Incluir(PerfilDTO perfil)
         {
-            Compras.Service.PerfilService.Cadastrar(perfil);
-            return View();
+
+            try
+            {
+                Compras.Service.PerfilService.Cadastrar(perfil);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         public ActionResult Alterar(int pefilID)
@@ -35,8 +43,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Alterar(PerfilDTO perfil)
         {
-            Compras.Service.PerfilService.Alterar(perfil);
-            return View();
+            try
+            {
+                Compras.Service.PerfilService.Alterar(perfil);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
         public ActionResult Excluir(int pefilID)
@@ -47,8 +62,15 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Excluir(PerfilDTO pefil)
         {
-            Compras.Service.PerfilService.Deletar(pefil.ID);
-            return View();
+            try
+            {
+                Compras.Service.PerfilService.Deletar(pefil.ID);
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
     }
 }
