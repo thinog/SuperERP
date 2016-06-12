@@ -130,11 +130,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CadastroController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\EstoqueGeralController.cs" />
     <Compile Include="Controllers\FinanceiroController.cs" />
+    <Compile Include="Controllers\FuncionalidadeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotaFiscalVendaController.cs" />
     <Compile Include="Controllers\ParcelasAReceberController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\ServicoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -208,6 +211,18 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Alterar.cshtml" />
     <Content Include="Views\Usuario\Excluir.cshtml" />
+    <Content Include="Views\Funcionalidade\Index.cshtml" />
+    <Content Include="Views\Funcionalidade\Incluir.cshtml" />
+    <Content Include="Views\Funcionalidade\Alterar.cshtml" />
+    <Content Include="Views\Funcionalidade\Excluir.cshtml" />
+    <Content Include="Views\Perfil\Index.cshtml" />
+    <Content Include="Views\Perfil\Incluir.cshtml" />
+    <Content Include="Views\Perfil\Alterar.cshtml" />
+    <Content Include="Views\Perfil\Excluir.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Empresa\Incluir.cshtml" />
+    <Content Include="Views\Empresa\Alterar.cshtml" />
+    <Content Include="Views\Empresa\Excluir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
