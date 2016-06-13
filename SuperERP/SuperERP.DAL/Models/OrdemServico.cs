@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SuperERP.DAL.Models
 {
-    public partial class OrdemServico
+    public class OrdemServico
     {
         public int Id { get; set; }
         public string Nome { get; set; }
