@@ -13,6 +13,7 @@ namespace SuperERP.Vendas.Config
         public static void ConverteDTOParaModel()
         {
             AutoMapper.Mapper.CreateMap<PessoaFisicaDTO, PessoaFisica>();
+            AutoMapper.Mapper.CreateMap<PessoaJuridicaDTO, PessoaJuridica>();
             AutoMapper.Mapper.CreateMap<ParcelamentoDTO, Parcelamento>();
             AutoMapper.Mapper.CreateMap<ProdutoEstoqueDTO, Produto>();
             AutoMapper.Mapper.CreateMap<VendaDTO, Venda>();
@@ -29,6 +30,7 @@ namespace SuperERP.Vendas.Config
         public static void ConverteModelParaDTO()
         {
             AutoMapper.Mapper.CreateMap<PessoaFisica, PessoaFisicaDTO>();
+            AutoMapper.Mapper.CreateMap<PessoaJuridica, PessoaJuridicaDTO>();
             AutoMapper.Mapper.CreateMap<Parcelamento, ParcelamentoDTO>();
             AutoMapper.Mapper.CreateMap<Produto, ProdutoEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Venda, VendaDTO>();
