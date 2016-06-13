@@ -136,6 +136,7 @@
     <Compile Include="Controllers\FuncionalidadeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotaFiscalVendaController.cs" />
+    <Compile Include="Controllers\OrdemServicoController.cs" />
     <Compile Include="Controllers\ParcelasAReceberController.cs" />
     <Compile Include="Controllers\PerfilController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
@@ -223,6 +224,10 @@
     <Content Include="Views\Empresa\Incluir.cshtml" />
     <Content Include="Views\Empresa\Alterar.cshtml" />
     <Content Include="Views\Empresa\Excluir.cshtml" />
+    <Content Include="Views\OrdemServico\CadastrarNovaOrdem.cshtml" />
+    <Content Include="Views\OrdemServico\DetalheOrdem.cshtml" />
+    <Content Include="Views\OrdemServico\EditarOrdemServico.cshtml" />
+    <Content Include="Views\OrdemServico\ListarTodasOrdens.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -107,6 +107,7 @@
     <Compile Include="Repositories\EstoqueRepository.cs" />
     <Compile Include="Repositories\EmpresaRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\OrdemServicoRepositorio.cs" />
     <Compile Include="Repositories\ParcelasAReceberRepositorio.cs" />
     <Compile Include="Repositories\PessoaFisicaRepositorio.cs" />
     <Compile Include="Repositories\ProdutoRepository.cs" />
