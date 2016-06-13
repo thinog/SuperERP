@@ -19,5 +19,19 @@ namespace SuperERP.DAL.Repositories
         {
             return dbContext.PessoasFisicas.FirstOrDefault(x => x.CPF == cpf);
         }
+
+        public List<PessoaFisica> ObterTodos()
+        {
+            //var clientes = (from pessoaFisica in dbContext.PessoaFisicas select pessoaFisica).ToList();
+            var clientes = dbContext.PessoasFisicas.ToList();
+            if (clientes.Count() > 0)
+            {
+                return clientes;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
