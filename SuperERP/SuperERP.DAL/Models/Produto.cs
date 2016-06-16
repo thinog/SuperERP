@@ -7,9 +7,9 @@ namespace SuperERP.DAL.Models
     {
         public Produto()
         {
-            this.Compra_Ativos = new List<Compra_Ativos>();
+            this.Compra_Ativos = new List<CompraAtiva>();
             this.ProdutoFornecedors = new List<ProdutoFornecedor>();
-            this.Venda_Ativos = new List<Venda_Ativos>();
+            this.Venda_Ativos = new List<VendasAtivas>();
         }
 
         public int ID { get; set; }
@@ -36,11 +36,11 @@ namespace SuperERP.DAL.Models
         public string ean { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual ClienteFornecedor ClienteFornecedor { get; set; }
-        public virtual ICollection<Compra_Ativos> Compra_Ativos { get; set; }
+        public virtual ICollection<CompraAtiva> Compra_Ativos { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual Ncm Ncm { get; set; }
-        public virtual Unidade_Medida Unidade_Medida { get; set; }
+        public virtual UnidadeMedida Unidade_Medida { get; set; }
         public virtual ICollection<ProdutoFornecedor> ProdutoFornecedors { get; set; }
-        public virtual ICollection<Venda_Ativos> Venda_Ativos { get; set; }
+        public virtual ICollection<VendasAtivas> Venda_Ativos { get; set; }
     }
 }

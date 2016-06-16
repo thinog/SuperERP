@@ -20,7 +20,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.ClienteFornecedor)
-                .WithMany(t => t.ProdutoFornecedors)
+                .WithMany(t => t.ProdutoFornecedores)
                 .HasForeignKey(d => d.ID_Fornecedor);
             this.HasRequired(t => t.Produto)
                 .WithMany(t => t.ProdutoFornecedors)

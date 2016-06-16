@@ -7,12 +7,12 @@ namespace SuperERP.DAL.Models
     {
         public Periodicidade()
         {
-            this.Contrato_Venda = new List<Contrato_Venda>();
+            ContratoVenda = new List<ContratoVenda>();
         }
 
         public int ID { get; set; }
         public string Nome { get; set; }
         public int Meses { get; set; }
-        public virtual ICollection<Contrato_Venda> Contrato_Venda { get; set; }
+        public virtual ICollection<ContratoVenda> ContratoVenda { get; set; }
     }
 }

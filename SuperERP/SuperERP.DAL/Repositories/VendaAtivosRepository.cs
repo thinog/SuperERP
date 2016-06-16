@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SuperERP.DAL.Repositories
 {
-    public class VendaAtivosRepository : Repositorio<Venda_Ativos>
+    public class VendaAtivosRepository : Repositorio<VendasAtivas>
     {
-        public ICollection<Venda_Ativos> PegarVendaAtivos(int vendaId)
+        public ICollection<VendasAtivas> PegarVendaAtivos(int vendaId)
         {
-            var venda = dbContext.Venda_Ativos
+            var venda = dbContext.VendasAtivas
                         .Include(x => x.Produto)
                         .Include(x => x.Produto.Ncm)
                         .Include(x => x.Produto.Unidade_Medida)

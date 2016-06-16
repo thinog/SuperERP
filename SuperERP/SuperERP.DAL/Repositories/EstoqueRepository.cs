@@ -12,23 +12,23 @@ namespace SuperERP.DAL.Repositories
     {
         public ICollection<Produto> PegarEstoque()
         {
-            return dbContext.Produtoes
+            return dbContext.Produtos
                             .Include( x=> x.Categoria)
                             .Include( x => x.Unidade_Medida )
                             .ToList();
         }
-        public ICollection<Venda_Ativos> PegarVendaAtivosDoProduto(int produtoId)
+        public ICollection<VendasAtivas> PegarVendaAtivosDoProduto(int produtoId)
         {
-            return dbContext.Venda_Ativos
+            return dbContext.VendasAtivas
                             .Include(x => x.Venda)
                             .Include(x => x.Venda.ClienteFornecedor)
                             .Include(x => x.Produto)
                             .Where(x => x.ID_Produto == produtoId)
                             .ToList();
         }
-        public ICollection<Compra_Ativos> PegarCompraAtivosDoProduto(int produtoId)
+        public ICollection<CompraAtiva> PegarCompraAtivosDoProduto(int produtoId)
         {
-            return dbContext.Compra_Ativos
+            return dbContext.ComprasAtivas
                             .Include(x => x.Compra)
                             .Include(x => x.Compra.ClienteFornecedor)
                             .Include(x => x.Produto)

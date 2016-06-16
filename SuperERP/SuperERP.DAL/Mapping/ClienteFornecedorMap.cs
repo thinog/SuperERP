@@ -20,7 +20,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Relationships
             this.HasOptional(t => t.PessoaFisica)
-                .WithMany(t => t.ClienteFornecedors)
+                .WithMany(t => t.ClienteFornecedores)
                 .HasForeignKey(d => d.ID_PF);
             this.HasOptional(t => t.PessoaJuridica)
                 .WithMany(t => t.ClienteFornecedors)

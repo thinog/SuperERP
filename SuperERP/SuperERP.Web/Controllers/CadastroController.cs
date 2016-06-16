@@ -17,11 +17,10 @@ namespace SuperERP.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Empresa(EmpresaDTO usurio)
+        public ActionResult Empresa(Compras.DTO.EmpresaDTO empresa)
 
         {
-
-            var teste = new List<string>();
+            Compras.Service.EmpresaService.Cadastrar(empresa);
             return View();
         }
 
@@ -32,10 +31,10 @@ namespace SuperERP.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult Usuario(UsuarioDTO usurio)
+        public ActionResult Usuario(UsuarioDTO usuario)
         {
-           
-            var teste = new List<string>();
+
+            Compras.Service.UsuarioService.Cadastrar(usuario);
             return View();
         }
 
@@ -47,8 +46,8 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult PessoaFisica(PessoaFisicaDTO pessoa)
         {
-           // var pessoaFisica = SuperERP.Vendas.Listar.PessoaFisica();
-           
+            // var pessoaFisica = SuperERP.Vendas.Listar.PessoaFisica();
+
             var teste = new List<string>();
             return View();
         }
@@ -63,5 +62,5 @@ namespace SuperERP.Web.Controllers
         {
             return View();
         }
-	}
+    }
 }

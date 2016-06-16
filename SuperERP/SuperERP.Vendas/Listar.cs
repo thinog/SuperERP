@@ -26,12 +26,31 @@ namespace SuperERP.Vendas
         }
 
         //public static ICollection<CategoriaDTO> CategoriasServico()
-        public static void CategoriasServico()
+        public static ICollection<CategoriaDTO> CategoriasServico()
         {
+            Config.AutoMapperConfig.Inicializar();
             var categoriasRep = new DAL.Repositories.CategoriaRepositorio();
-            //var categorias = categoriasRep.PegarTodasCategorias(true).ToList();
-            //var c = Mapper.Map<List<Categoria>, List<CategoriaDTO>>(categorias);
-            //return new ICollection<CategoriaDTO>();
+
+            var categorias = categoriasRep.PegarTodasCategorias(true);
+
+            var c = Mapper.Map<ICollection<Categoria>, ICollection<CategoriaDTO>>(categorias);
+
+            return c;
+        }
+
+        public static ICollection<EmpresaDTO> Empresas()
+        {
+
+            Config.AutoMapperConfig.Inicializar();
+
+            var empresaRep = new ServicoRepositorio();
+
+            var empresa = empresaRep.PegarEmpresa();
+
+            var e = Mapper.Map<ICollection<Empresa>, ICollection<EmpresaDTO>>(empresa);
+
+            return e;
+
         }
 
         public static ICollection<ProdutoEstoqueDTO> Estoque()
@@ -47,8 +66,8 @@ namespace SuperERP.Vendas
         {
             Config.AutoMapperConfig.Inicializar();
             var estoqueRep = new EstoqueRepository();
-            ICollection<Venda_Ativos> vendaAtivos = estoqueRep.PegarVendaAtivosDoProduto(idProduto);
-            var vendaAtivosDTO = Mapper.Map<ICollection<Venda_Ativos>, ICollection<VendaAtivosEstoqueDTO>>(vendaAtivos);
+            ICollection<VendasAtivas> vendaAtivos = estoqueRep.PegarVendaAtivosDoProduto(idProduto);
+            var vendaAtivosDTO = Mapper.Map<ICollection<VendasAtivas>, ICollection<VendaAtivosEstoqueDTO>>(vendaAtivos);
             return vendaAtivosDTO;
         }
 
@@ -56,8 +75,8 @@ namespace SuperERP.Vendas
         {
             Config.AutoMapperConfig.Inicializar();
             var estoqueRep = new EstoqueRepository();
-            ICollection<Compra_Ativos> compraAtivos = estoqueRep.PegarCompraAtivosDoProduto(idProduto);
-            var compraAtivosDTO = Mapper.Map<ICollection<Compra_Ativos>, ICollection<CompraAtivosEstoqueDTO>>(compraAtivos);
+            ICollection<CompraAtiva> compraAtivos = estoqueRep.PegarCompraAtivosDoProduto(idProduto);
+            var compraAtivosDTO = Mapper.Map<ICollection<CompraAtiva>, ICollection<CompraAtivosEstoqueDTO>>(compraAtivos);
             return compraAtivosDTO;
         }
 
@@ -128,7 +147,7 @@ namespace SuperERP.Vendas
             Config.AutoMapperConfig.Inicializar();
             var vendaAtivosRep = new VendaAtivosRepository();
             var vendaAtivos = vendaAtivosRep.PegarVendaAtivos(id);
-            var vendaAtivosDTO = Mapper.Map<ICollection<Venda_Ativos>, ICollection<VendaAtivosDTO>>(vendaAtivos);
+            var vendaAtivosDTO = Mapper.Map<ICollection<VendasAtivas>, ICollection<VendaAtivosDTO>>(vendaAtivos);
             return vendaAtivosDTO;
         }
     }
