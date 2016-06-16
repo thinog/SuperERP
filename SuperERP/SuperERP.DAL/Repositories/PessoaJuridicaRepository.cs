@@ -24,10 +24,23 @@ namespace SuperERP.DAL.Repositories
         }
         public List<PessoaJuridica> ObterTodos()
         {
+            //var clientes = (from pessoaJuridica in dbContext.PessoasJuridicas join contato in dbContext.Contatos on pessoaJuridica.ID equals contato.IdPessoaFisica select pessoaJuridica).ToList();
             var clientes = dbContext.PessoasJuridicas.ToList();
             if (clientes.Count() > 0)
             {
                 return clientes;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public List<Contato> ObterContatos()
+        {
+            var contatos = dbContext.Contatos.ToList();
+            if (contatos.Count() > 0)
+            {
+                return contatos;
             }
             else
             {
