@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace SuperERP.DAL.Models.Mapping
 {
-    public class Compra_AtivosMap : EntityTypeConfiguration<Compra_Ativos>
+    public class Compra_AtivosMap : EntityTypeConfiguration<CompraAtiva>
     {
         public Compra_AtivosMap()
         {
@@ -26,7 +26,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.Compra)
-                .WithMany(t => t.Compra_Ativos)
+                .WithMany(t => t.CompraAtiva)
                 .HasForeignKey(d => d.ID_Compra);
             this.HasOptional(t => t.Produto)
                 .WithMany(t => t.Compra_Ativos)
