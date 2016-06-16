@@ -3,12 +3,12 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace SuperERP.DAL.Models.Mapping
 {
-    public class Forma_PgtoMap : EntityTypeConfiguration<Forma_Pgto>
+    public class Forma_PgtoMap : EntityTypeConfiguration<FormaPgto>
     {
         public Forma_PgtoMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.Id);
 
             // Properties
             this.Property(t => t.Nome)
@@ -17,7 +17,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("Forma_Pgto");
-            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.Id).HasColumnName("ID");
             this.Property(t => t.Nome).HasColumnName("Nome");
         }
     }

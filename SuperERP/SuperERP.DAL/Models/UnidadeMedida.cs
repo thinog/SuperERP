@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SuperERP.DAL.Models
 {
-    public partial class Unidade_Medida
+    public partial class UnidadeMedida
     {
-        public Unidade_Medida()
+        public UnidadeMedida()
         {
             this.Produtoes = new List<Produto>();
         }

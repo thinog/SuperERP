@@ -24,7 +24,8 @@ create table Funcionalidades_Perfil (
 	ID_Funcionalidades INT NOT NULL,
 	ID_Perfil INT NOT NULL,
 	CONSTRAINT FK_FuncionalidadesPerfil_Funcionalidades FOREIGN KEY(ID_Funcionalidades) REFERENCES Funcionalidades (ID),
-	CONSTRAINT FK_FuncionalidadesPerfil_Perfil FOREIGN KEY(ID_Perfil) REFERENCES Perfil (ID)
+	CONSTRAINT FK_FuncionalidadesPerfil_Perfil FOREIGN KEY(ID_Perfil) REFERENCES Perfil (ID),
+	primary key(ID_Funcionalidades,ID_Perfil)
 );
 go
 create table Usuario(

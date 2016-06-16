@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.ModelConfiguration;
 
 namespace SuperERP.DAL.Models.Mapping
@@ -8,42 +7,42 @@ namespace SuperERP.DAL.Models.Mapping
         public CompraMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            HasKey(t => t.Id);
 
             // Properties
-            this.Property(t => t.Observacoes)
+            Property(t => t.Observacoes)
                 .IsRequired()
                 .HasMaxLength(300);
 
             // Table & Column Mappings
-            this.ToTable("Compra");
-            this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.ID_Empresa).HasColumnName("ID_Empresa");
-            this.Property(t => t.ID_Fornecedor).HasColumnName("ID_Fornecedor");
-            this.Property(t => t.ID_Status).HasColumnName("ID_Status");
-            this.Property(t => t.Compra_Num).HasColumnName("Compra_Num");
-            this.Property(t => t.Data_Compra).HasColumnName("Data_Compra");
-            this.Property(t => t.Desconto).HasColumnName("Desconto");
-            this.Property(t => t.ID_FormaPgto).HasColumnName("ID_FormaPgto");
-            this.Property(t => t.Observacoes).HasColumnName("Observacoes");
-            this.Property(t => t.ID_conta).HasColumnName("ID_conta");
+            ToTable("Compra");
+            Property(t => t.Id).HasColumnName("ID");
+            Property(t => t.IdEmpresa).HasColumnName("ID_Empresa");
+            Property(t => t.IdFornecedor).HasColumnName("ID_Fornecedor");
+            Property(t => t.IdStatus).HasColumnName("ID_Status");
+            Property(t => t.CompraNum).HasColumnName("Compra_Num");
+            Property(t => t.DataCompra).HasColumnName("Data_Compra");
+            Property(t => t.Desconto).HasColumnName("Desconto");
+            Property(t => t.IdFormaPgto).HasColumnName("ID_FormaPgto");
+            Property(t => t.Observacoes).HasColumnName("Observacoes");
+            Property(t => t.Idconta).HasColumnName("ID_conta");
 
             // Relationships
-            this.HasRequired(t => t.ClienteFornecedor)
+            HasRequired(t => t.ClienteFornecedor)
                 .WithMany(t => t.Compras)
-                .HasForeignKey(d => d.ID_Fornecedor);
-            this.HasRequired(t => t.Dados_Bancarios)
+                .HasForeignKey(d => d.IdFornecedor);
+            HasRequired(t => t.DadosBancarios)
                 .WithMany(t => t.Compras)
-                .HasForeignKey(d => d.ID_conta);
-            this.HasRequired(t => t.Empresa)
+                .HasForeignKey(d => d.Idconta);
+            HasRequired(t => t.Empresa)
                 .WithMany(t => t.Compras)
-                .HasForeignKey(d => d.ID_Empresa);
-            this.HasRequired(t => t.Forma_Pgto)
+                .HasForeignKey(d => d.IdEmpresa);
+            HasRequired(t => t.FormaPgto)
                 .WithMany(t => t.Compras)
-                .HasForeignKey(d => d.ID_FormaPgto);
-            this.HasRequired(t => t.Status_Venda)
+                .HasForeignKey(d => d.IdFormaPgto);
+            HasRequired(t => t.StatusVenda)
                 .WithMany(t => t.Compras)
-                .HasForeignKey(d => d.ID_Status);
+                .HasForeignKey(d => d.IdStatus);
 
         }
     }

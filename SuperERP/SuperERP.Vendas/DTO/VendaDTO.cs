@@ -20,7 +20,7 @@ namespace SuperERP.Vendas.DTO
         public virtual ClienteFornecedor ClienteFornecedor { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual ICollection<Venda_Ativos> Venda_Ativos { get; set; }
-        public virtual Forma_Pgto Forma_Pgto { get; set; }
+        public virtual ICollection<VendasAtivas> Venda_Ativos { get; set; }
+        public virtual FormaPgto Forma_Pgto { get; set; }
     }
 }

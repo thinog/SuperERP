@@ -33,7 +33,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Relationships
             this.HasRequired(t => t.Empresa)
-                .WithMany(t => t.PessoaJuridicas)
+                .WithMany(t => t.PessoasJuridicas)
                 .HasForeignKey(d => d.ID_Empresa);
 
         }
