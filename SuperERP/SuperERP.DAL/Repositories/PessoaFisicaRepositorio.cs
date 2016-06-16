@@ -22,11 +22,22 @@ namespace SuperERP.DAL.Repositories
 
         public List<PessoaFisica> ObterTodos()
         {
-            //var clientes = (from pessoaFisica in dbContext.PessoaFisicas select pessoaFisica).ToList();
             var clientes = dbContext.PessoasFisicas.ToList();
             if (clientes.Count() > 0)
             {
                 return clientes;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public List<Contato> ObterContatos()
+        {
+            var contatos = dbContext.Contatos.ToList();
+            if (contatos.Count() > 0)
+            {
+                return contatos;
             }
             else
             {
