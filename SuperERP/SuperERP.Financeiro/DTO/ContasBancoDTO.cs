@@ -8,5 +8,6 @@ namespace SuperERP.Financeiro.DTO
 {
     class ContasBancoDTO
     {
+        public int ID { get; set; }
     }
 }
