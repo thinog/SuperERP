@@ -11,7 +11,7 @@ namespace SuperERP.DAL.Repositories
     {
         public ICollection<ClienteFornecedor> ListarClientes()
         {
-            return dbContext.ClienteFornecedors.ToList();
+            return dbContext.ClienteFornecedores.ToList();
         }
     }
 }

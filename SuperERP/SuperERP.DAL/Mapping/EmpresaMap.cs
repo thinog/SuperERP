@@ -8,7 +8,7 @@ namespace SuperERP.DAL.Models.Mapping
         public EmpresaMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.Id);
 
             // Properties
             this.Property(t => t.Nome)
@@ -49,7 +49,7 @@ namespace SuperERP.DAL.Models.Mapping
 
             // Table & Column Mappings
             this.ToTable("Empresa");
-            this.Property(t => t.ID).HasColumnName("ID");
+            this.Property(t => t.Id).HasColumnName("ID");
             this.Property(t => t.Nome).HasColumnName("Nome");
             this.Property(t => t.CNPJ).HasColumnName("CNPJ");
             this.Property(t => t.RazaoSocial).HasColumnName("RazaoSocial");

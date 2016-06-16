@@ -1,7 +1,7 @@
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using SuperERP.DAL.Models.Mapping;
 using SuperERP.DAL.Models;
+using SuperERP.DAL.Mapping;
 
 namespace SuperERP.DAL.Context
 {
@@ -19,46 +19,44 @@ namespace SuperERP.DAL.Context
         }
 
         public DbSet<Categoria> Categorias { get; set; }
-        public DbSet<ClienteFornecedor> ClienteFornecedors { get; set; }
-        public DbSet<ClienteFornecedorContato> ClienteFornecedorContatoes { get; set; }
-        public DbSet<ClienteFornecedorEndereco> ClienteFornecedorEnderecoes { get; set; }
+        public DbSet<ClienteFornecedor> ClienteFornecedores { get; set; }
         public DbSet<Compra> Compras { get; set; }
-        public DbSet<Compra_Ativos> Compra_Ativos { get; set; }
-        public DbSet<Contrato_Venda> Contrato_Venda { get; set; }
-        public DbSet<Dados_Bancarios> Dados_Bancarios { get; set; }
-        public DbSet<DadosBancariosFornCliente> DadosBancariosFornClientes { get; set; }
+        public DbSet<CompraAtiva> ComprasAtivas { get; set; }
+        public DbSet<Contato> Contatos { get; set; }
+        public DbSet<ContratoVenda> ContratosDeVendas { get; set; }
+        public DbSet<DadosBancarios> DadosBancarios { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
-        public DbSet<Forma_Pgto> Forma_Pgto { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<FormaPgto> FormasDePgto { get; set; }
         public DbSet<Funcionalidade> Funcionalidades { get; set; }
         public DbSet<Ncm> Ncms { get; set; }
-        public DbSet<Ordem_Servico> Ordem_Servico { get; set; }
-        public DbSet<Parcelamento> Parcelamentoes { get; set; }
-        public DbSet<Perfil> Perfils { get; set; }
+        public DbSet<OrdemServico> OrdensDeServico { get; set; }
+        public DbSet<Parcelamento> Parcelamentos { get; set; }
+        public DbSet<Perfil> Perfis { get; set; }
         public DbSet<Periodicidade> Periodicidades { get; set; }
-        public DbSet<PessoaFisica> PessoaFisicas { get; set; }
-        public DbSet<PessoaJuridica> PessoaJuridicas { get; set; }
-        public DbSet<Produto> Produtoes { get; set; }
-        public DbSet<ProdutoFornecedor> ProdutoFornecedors { get; set; }
-        public DbSet<Servico> Servicoes { get; set; }
-        public DbSet<Status_Servico> Status_Servico { get; set; }
-        public DbSet<Status_Venda> Status_Venda { get; set; }
-        public DbSet<Unidade_Medida> Unidade_Medida { get; set; }
+        public DbSet<PessoaFisica> PessoasFisicas { get; set; }
+        public DbSet<PessoaJuridica> PessoasJuridicas { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<ProdutoFornecedor> ProdutoFornecedores { get; set; }
+        public DbSet<Servico> Servicos { get; set; }
+        public DbSet<StatusServico> StatusServicos { get; set; }
+        public DbSet<StatusVenda> StatusVendas { get; set; }
+        public DbSet<UnidadeMedida> UnidadesMedidas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Venda> Vendas { get; set; }
-        public DbSet<Venda_Ativos> Venda_Ativos { get; set; }
+        public DbSet<VendasAtivas> VendasAtivas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CategoriaMap());
             modelBuilder.Configurations.Add(new ClienteFornecedorMap());
-            modelBuilder.Configurations.Add(new ClienteFornecedorContatoMap());
-            modelBuilder.Configurations.Add(new ClienteFornecedorEnderecoMap());
             modelBuilder.Configurations.Add(new CompraMap());
             modelBuilder.Configurations.Add(new Compra_AtivosMap());
+            modelBuilder.Configurations.Add(new ContatoMap());
             modelBuilder.Configurations.Add(new Contrato_VendaMap());
-            modelBuilder.Configurations.Add(new Dados_BancariosMap());
-            modelBuilder.Configurations.Add(new DadosBancariosFornClienteMap());
+            modelBuilder.Configurations.Add(new DadosBancariosMap());
             modelBuilder.Configurations.Add(new EmpresaMap());
+            modelBuilder.Configurations.Add(new EnderecoMap());
             modelBuilder.Configurations.Add(new Forma_PgtoMap());
             modelBuilder.Configurations.Add(new FuncionalidadeMap());
             modelBuilder.Configurations.Add(new NcmMap());
