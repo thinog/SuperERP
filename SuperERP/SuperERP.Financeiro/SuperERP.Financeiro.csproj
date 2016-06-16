@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\ContasBancoDTO.cs" />
+    <Compile Include="DTO\DadosBancariosDTO.cs" />
     <Compile Include="DTO\ContasPagarDTO.cs" />
     <Compile Include="DTO\ContasReceberDTO.cs" />
     <Compile Include="DTO\ExtratoDTO.cs" />
