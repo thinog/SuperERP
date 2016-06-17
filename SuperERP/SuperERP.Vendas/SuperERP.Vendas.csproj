@@ -54,7 +54,7 @@
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="DTO\CategoriaDTO.cs" />
     <Compile Include="DTO\CompraAtivosEstoqueDTO.cs" />
-    <Compile Include="DTO\EmpresaDTO.cs" />
+    <Compile Include="DTO\EmpresaDto.cs" />
     <Compile Include="DTO\OrdemServicoDTO.cs" />
     <Compile Include="DTO\ParcelamentoDTO.cs" />
     <Compile Include="DTO\PessoaFisicaDTO.cs" />
