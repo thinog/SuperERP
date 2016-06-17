@@ -101,6 +101,8 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendasAtivas.cs" />
+    <Compile Include="Models\ViewCompra.cs" />
+    <Compile Include="Models\ViewVenda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoriaRepositorio.cs" />
     <Compile Include="Repositories\ClienteFornecedorRepository.cs" />

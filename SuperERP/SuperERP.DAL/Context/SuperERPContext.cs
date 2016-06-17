@@ -45,6 +45,8 @@ namespace SuperERP.DAL.Context
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Venda> Vendas { get; set; }
         public DbSet<VendasAtivas> VendasAtivas { get; set; }
+        public DbSet<ViewCompra> ViewCompra { get; set; }
+        public DbSet<ViewVenda> ViewVenda { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
