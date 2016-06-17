@@ -24,7 +24,8 @@ namespace SuperERP.Compras.Config
             AutoMapper.Mapper.CreateMap<FuncionalidadeDTO, Funcionalidade>();
             AutoMapper.Mapper.CreateMap<ProdutoDTO, Produto>();
             AutoMapper.Mapper.CreateMap<UsuarioDTO, Usuario>();
-         
+   
+
         }
 
         public static void ConverteModelParaDTO()
