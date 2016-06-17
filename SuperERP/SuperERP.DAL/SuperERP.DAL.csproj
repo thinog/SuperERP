@@ -106,6 +106,7 @@
     <Compile Include="Repositories\CategoriaRepositorio.cs" />
     <Compile Include="Repositories\ClienteFornecedorRepository.cs" />
     <Compile Include="Repositories\CompraAtiva.cs" />
+    <Compile Include="Repositories\ContatoRepository.cs" />
     <Compile Include="Repositories\EstoqueRepository.cs" />
     <Compile Include="Repositories\EmpresaRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />

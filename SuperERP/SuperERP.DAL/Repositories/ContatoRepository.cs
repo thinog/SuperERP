@@ -1,4 +1,4 @@
-﻿using SuperERP.DAL.Models;
+﻿using SuperERP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +11,11 @@ namespace SuperERP.DAL.Repositories
     {
         public Contato ObterPorPessoaFisica(int id)
         {
-            return dbContext.Contatos.Where(x => x.IdPessoaFisica == id).FirstOrDefault();
+            return dbContext.Contatoes.Where(x => x.ID_PessoaFisica == id).FirstOrDefault();
         }
         public Contato ObterPorPessoaJuridica(int id)
         {
-            return dbContext.Contatos.Where(x => x.IdPessoaJuridica == id).FirstOrDefault();
+            return dbContext.Contatoes.Where(x => x.ID_PessoaJuridica == id).FirstOrDefault();
         }
     }
 }
