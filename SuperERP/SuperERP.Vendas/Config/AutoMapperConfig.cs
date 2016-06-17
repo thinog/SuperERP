@@ -22,6 +22,7 @@ namespace SuperERP.Vendas.Config
             AutoMapper.Mapper.CreateMap<CompraAtivosEstoqueDTO, Compra_Ativos>();
             AutoMapper.Mapper.CreateMap<CategoriaDTO, Categoria>();
             AutoMapper.Mapper.CreateMap<EmpresaDTO, Empresa>();
+            AutoMapper.Mapper.CreateMap<OrdemServicoDTO, Ordem_Servico>();
         }
 
 
@@ -39,6 +40,7 @@ namespace SuperERP.Vendas.Config
             AutoMapper.Mapper.CreateMap<Venda_Ativos, CompraAtivosEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Categoria, CategoriaDTO>();
             AutoMapper.Mapper.CreateMap<Empresa, EmpresaDTO>();
+            AutoMapper.Mapper.CreateMap<Ordem_Servico, OrdemServicoDTO>().ForMember(x => x.Status, y => y.MapFrom(o => o.Status_Servico.Nome));
         }
     }
 }
