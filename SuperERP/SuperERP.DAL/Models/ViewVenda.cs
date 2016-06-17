@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperERP.DAL.Models
 {
-    class ViewVenda
+   public class ViewVenda
     {
         public int ID_PARC { get; set; }
         public int Numero_Parcela { get; set; }

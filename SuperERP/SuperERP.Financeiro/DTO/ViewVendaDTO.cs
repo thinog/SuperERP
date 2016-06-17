@@ -4,26 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Financeiro.DTO
 {
-   public class ViewCompra
+    class ViewVendaDTO
     {
         public int ID_PARC { get; set; }
-        public int ID_Compra { get; set; }
         public int Numero_Parcela { get; set; }
         public decimal Valor { get; set; }
-        public int Pago { get; set; }
         public DateTime Data_Pagamento { get; set; }
-        public DateTime Data_Pago { get; set; }
-        public int ID_Empresa{ get; set; }
-        public int ID_Fornecedor { get; set; }
+        public DateTime Data_pago { get; set; }
+        public int ID_Venda { get; set; }
+        public int ID_Empresa { get; set; }
         public int ID_Usuario { get; set; }
+        public int ID_Cliente { get; set; }
+        public int ID_Orcamento { get; set; }
         public int ID_Status { get; set; }
-        public int Compra_Num { get; set; }
-        public DateTime Data_Compra { get; set; }
+        public int ID_Formapgto { get; set; }
+        public int Venda_Num { get; set; }
+        public DateTime Data_Venda { get; set; }
+        public bool Contrato { get; set; }
         public decimal Desconto { get; set; }
-        public int ID_FormaPgto { get; set; }
-        public int ID_Conta { get; set; }
         public string Observacoes { get; set; }
     }
 }

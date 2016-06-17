@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Financeiro.DTO
 {
-   public class ViewCompra
+    class ViewCompraDTO
     {
         public int ID_PARC { get; set; }
         public int ID_Compra { get; set; }
@@ -15,7 +15,7 @@ namespace SuperERP.DAL.Models
         public int Pago { get; set; }
         public DateTime Data_Pagamento { get; set; }
         public DateTime Data_Pago { get; set; }
-        public int ID_Empresa{ get; set; }
+        public int ID_Empresa { get; set; }
         public int ID_Fornecedor { get; set; }
         public int ID_Usuario { get; set; }
         public int ID_Status { get; set; }
