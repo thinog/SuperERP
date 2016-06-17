@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using SuperERP.Financeiro.DTO;
-using SuperERP.DAL.Models;
+using SuperERP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

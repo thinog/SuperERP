@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperERP.DAL.Models
+namespace SuperERP.Models
 {
    public class ViewCompra
     {
