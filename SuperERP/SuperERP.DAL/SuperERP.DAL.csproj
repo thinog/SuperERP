@@ -117,6 +117,7 @@
     <Compile Include="Repositories\ProdutoRepository.cs" />
     <Compile Include="Repositories\Repositorio.cs" />
     <Compile Include="Repositories\ServicoRepositorio.cs" />
+    <Compile Include="Repositories\StatusServicoRepositorio.cs" />
     <Compile Include="Repositories\VendaAtivosRepository.cs" />
     <Compile Include="Repositories\VendasRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />

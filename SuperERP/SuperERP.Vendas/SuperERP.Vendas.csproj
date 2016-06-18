@@ -61,6 +61,7 @@
     <Compile Include="DTO\PessoaJuridicaDTO.cs" />
     <Compile Include="DTO\ProdutoEstoqueDTO.cs" />
     <Compile Include="DTO\ServicoDTO.cs" />
+    <Compile Include="DTO\StatusServicoDTO.cs" />
     <Compile Include="DTO\VendaAtivosDTO.cs" />
     <Compile Include="DTO\VendaAtivosEstoqueDTO.cs" />
     <Compile Include="DTO\VendaDTO.cs" />

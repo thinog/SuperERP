@@ -232,13 +232,13 @@
     <Content Include="Views\Empresa\Incluir.cshtml" />
     <Content Include="Views\Empresa\Alterar.cshtml" />
     <Content Include="Views\Empresa\Excluir.cshtml" />
-    <Content Include="Views\OrdemServico\CadastrarNovaOrdem.cshtml" />
-    <Content Include="Views\OrdemServico\DetalheOrdem.cshtml" />
-    <Content Include="Views\OrdemServico\EditarOrdemServico.cshtml" />
-    <Content Include="Views\OrdemServico\ListarTodasOrdens.cshtml" />
     <Content Include="Views\Cliente\Cadastrar.cshtml" />
     <Content Include="Views\Cliente\Editar.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\OrdemServico\ListarTodasOrdens.cshtml" />
+    <Content Include="Views\OrdemServico\DetalheOrdem.cshtml" />
+    <Content Include="Views\OrdemServico\CadastrarNovaOrdem.cshtml" />
+    <Content Include="Views\OrdemServico\EditarOrdemServico.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
