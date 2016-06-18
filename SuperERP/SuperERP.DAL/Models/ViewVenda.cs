@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SuperERP.Models
 {
-   public class ViewVenda
+    public class ViewVenda
     {
+        [Key]
         public int ID_PARC { get; set; }
         public int Numero_Parcela { get; set; }
         public decimal Valor { get; set; }
         public DateTime Data_Pagamento { get; set; }
         public DateTime Data_pago { get; set; }
         public int ID_Venda { get; set; }
-        public int ID_Empresa {get;set; }
+        public int ID_Empresa { get; set; }
         public int ID_Usuario { get; set; }
         public int ID_Cliente { get; set; }
         public int ID_Orcamento { get; set; }
