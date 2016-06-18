@@ -12,7 +12,7 @@ namespace SuperERP.Web.Controllers
         // GET: /ParcelasAReceber/
         public ActionResult Index()
         {
-            var parcelas = Vendas.Listar.Parcelamentos();                       
+            var parcelas = Vendas.Listar.Parcelamentos();
 
             ViewBag.parcelasAreceber  = parcelas[0];
             ViewBag.parcelasRecebidas = parcelas[1];
