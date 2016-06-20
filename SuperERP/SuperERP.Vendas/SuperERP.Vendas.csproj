@@ -55,6 +55,9 @@
     <Compile Include="DTO\CategoriaDTO.cs" />
     <Compile Include="DTO\CompraAtivosEstoqueDTO.cs" />
     <Compile Include="DTO\EmpresaDto.cs" />
+    <Compile Include="DTO\ParcelaDTO.cs" />
+    <Compile Include="DTO\ProdutoDTO.cs" />
+    <Compile Include="DTO\VendaContratoDTO.cs" />
     <Compile Include="DTO\OrdemServicoDTO.cs" />
     <Compile Include="DTO\ParcelamentoDTO.cs" />
     <Compile Include="DTO\PessoaFisicaDTO.cs" />
