@@ -19,21 +19,22 @@ namespace SuperERP.Compras.Config
 
         public static void ConverteDTOParaModel()
         {
-            AutoMapper.Mapper.CreateMap<EmpresaDTO, Empresa>();
-            AutoMapper.Mapper.CreateMap<PerfilDTO, Perfil>();
-            AutoMapper.Mapper.CreateMap<FuncionalidadeDTO, Funcionalidade>();
-            AutoMapper.Mapper.CreateMap<ProdutoDTO, Produto>();
-            AutoMapper.Mapper.CreateMap<UsuarioDTO, Usuario>();
-         
+            Mapper.CreateMap<EmpresaDTO, Empresa>();
+            Mapper.CreateMap<PerfilDTO, Perfil>();
+            Mapper.CreateMap<ProdutoDTO, Produto>();
+            Mapper.CreateMap<FuncionalidadeDTO, Funcionalidade>();
+            Mapper.CreateMap<UsuarioDTO, Usuario>();
+   
+
         }
 
         public static void ConverteModelParaDTO()
         {
-            AutoMapper.Mapper.CreateMap<Empresa, EmpresaDTO>();
-            AutoMapper.Mapper.CreateMap<Perfil, PerfilDTO >();
-            AutoMapper.Mapper.CreateMap<Funcionalidade, FuncionalidadeDTO>();
-            AutoMapper.Mapper.CreateMap<Produto, ProdutoDTO>();
-            AutoMapper.Mapper.CreateMap<Usuario, UsuarioDTO>();
+            Mapper.CreateMap<Empresa, EmpresaDTO>();
+            Mapper.CreateMap<Perfil, PerfilDTO >();
+            Mapper.CreateMap<Funcionalidade, FuncionalidadeDTO>();
+            Mapper.CreateMap<Produto, ProdutoDTO>();
+            Mapper.CreateMap<Usuario, UsuarioDTO>();
         }
     }
 }
