@@ -58,11 +58,11 @@ namespace SuperERP.DAL.Repositories
             else
             {
                 var emp = new Empresa();
-                var end = new Endereco();
+                //var end = new Endereco();
                 emp.CNPJ = "0";
                 emp.Nome = "0";
                 emp.RazaoSocial = "0";
-                end.Endereco1 = "0";
+                /*end.Endereco1 = "0";
                 end.Numero = "0";
                 end.Complemento = "0";
                 end.Bairro = "0";
@@ -70,7 +70,7 @@ namespace SuperERP.DAL.Repositories
                 end = dbContext.Enderecoes.Add(end);
                 List<Endereco> e = new List<Endereco>();
                 e.Add(end);
-                emp.Enderecoes = e;
+                emp.Enderecoes = e;*/
                 emp = dbContext.Empresas.Add(emp);
                 dbContext.SaveChanges();
                 return emp;
