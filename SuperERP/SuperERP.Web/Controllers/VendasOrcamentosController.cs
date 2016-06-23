@@ -22,6 +22,7 @@ namespace SuperERP.Web.Controllers
 
         public ActionResult Novo()
         {
+            GerarViewBag();
             return View();
         }
 
@@ -29,6 +30,18 @@ namespace SuperERP.Web.Controllers
         public ActionResult Novo(VendaContratoDTO vendaContrato)
         {
             return View();
+        }
+
+        public ActionResult Visualizar(int id)
+        {
+            //var listaDeVendasOrcamentos = SuperERP.Vendas.Listar.Venda();
+            //return View(listaDeVendasOrcamentos);
+            return View();
+        }
+
+        private void GerarViewBag()
+        {
+            ViewBag.Clientes = new SelectList(SuperERP.Vendas.Service.ClienteService.ListarClientes(), "Id", "Nome");             
         }
     }
 }

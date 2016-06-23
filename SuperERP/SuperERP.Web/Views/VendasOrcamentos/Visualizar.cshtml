@@ -1,25 +1,23 @@
 ﻿@model SuperERP.Vendas.DTO.VendaContratoDTO
 
 @{
-    ViewBag.Title = "Novo Venda";
+    ViewBag.Title = "Venda";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
     .row {
         height: 45px !important;
-        padding-top: 4px;
     }
+
     .cabecalho {
         padding-top: 13px;
-        background-color: #F1F4F9;
-        font-weight: 700;
-        height: 30px;
     }
+
     .boxsizingBorder {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-}
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
 </style>
 
 <link rel="stylesheet" href="~/Content/bootstrap-datepicker3.min.css">
@@ -39,12 +37,11 @@
             <div class="form-group col-sm-3">
                 <label class="col-sm-12 text-left">Cliente</label>
                 <div class="col-sm-12">
-                    @Html.DropDownList("EmpresaId", (SelectList)ViewBag.Empresa, new { @class = "form-control" })
-                    @*<select class="form-control">
+                    <select class="form-control">
                         <option value="">Selecione</option>
                         <option value="1">Calçados S/A</option>
                         <option value="2">Sport World</option>
-                    </select>*@
+                    </select>
                 </div>
             </div>
 
@@ -52,14 +49,14 @@
                 <label class="col-sm-12 text-left">Data da Venda</label>
                 <div class="col-md-12">
                     @Html.EditorFor(model => model.DataVenda, new { htmlAttributes = new { @class = "form-control data" } })
-                    @Html.ValidationMessageFor(model => model.DataVenda, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.DataVenda, "", new { @class = "text-danger", disabled = "true" })
                 </div>
             </div>
 
             <div class="form-group col-sm-3">
                 <label class="text-left col-sm-12">Status</label>
                 <div class="col-md-12">
-                    <select class="form-control">
+                    <select class="form-control" disabled>
                         <option value="">Selecione</option>
                         <option value="1">Em Orçamento</option>
                         <option value="2">Orçamento Aceito</option>
@@ -172,13 +169,13 @@
             <div class="form-group col-sm-6">
                 <label class="text-left col-sm-12">Observações desta parcela</label>
                 <div class="col-md-12">
-                    <input class="form-control col-sm-12" type="text"/>
+                    <input class="form-control col-sm-12" type="text" />
                 </div>
             </div>
         </div>
         <hr />
         <br />
-        <div class="container">         
+        <div class="container">
             <div class="form-group">
                 <label class="text-left col-sm-12">Forma de Pagamento</label>
                 <div class="col-md-12">
@@ -195,7 +192,7 @@
                 </div>
             </div>
 
-            @*<div class="form-group">
+            <div class="form-group">
                 <label class="text-left col-sm-12">Vendedor</label>
                 <div class="col-md-12">
                     <select class="form-control col-sm-2">
@@ -204,9 +201,9 @@
                         <option value="2">Leonardo</option>
                     </select>
                 </div>
-            </div>*@
+            </div>
         </div>
-        
+
 
         <div class="container">
             <div class="col-sm-6">
@@ -244,6 +241,6 @@
             autoclose: true
         });
 
-        $('.data').mask('00/00/0000');        
+        $('.data').mask('00/00/0000');
     });
 </script>

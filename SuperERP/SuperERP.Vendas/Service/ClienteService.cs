@@ -14,7 +14,7 @@ namespace SuperERP.Vendas.Service
     {
         public static ICollection<PessoaFisicaDTO> ListaPessoasFisicas()
         {
-            Config.AutoMapperConfig.Inicializar();            
+            Config.AutoMapperConfig.Inicializar();
             var repositorio = new PessoaFisicaRepositorio();
             var repositorioContato = new ContatoRepository();
             var pessoaFisica = repositorio.ObterTodos();
@@ -56,6 +56,22 @@ namespace SuperERP.Vendas.Service
             return p;
         }
 
+        public static ICollection<ClienteDTO> ListarClientes()
+        {
+            var repo = new Repositorio<ClienteFornecedor>();
+            var listaClienteFornecedor = repo.ObterLista().Where(x => x.Tipo == 0 || x.Tipo == 2);
+            var clientes = new List<ClienteDTO>();
+            foreach (var cliente in listaClienteFornecedor)
+	        {
+                if(cliente.PessoaFisica != null){
+                    clientes.Add(new ClienteDTO {Id = cliente.ID, Nome = cliente.PessoaFisica.Nome});
+                } else {
+                    clientes.Add(new ClienteDTO { Id = cliente.ID, Nome = cliente.PessoaJuridica.Nome });
+                }
+        	}
+            return clientes;
+        }
+
         public static void CadastraPessoaFisica(PessoaFisicaDTO p)
         {
             PessoaFisica pessoa = new PessoaFisica();
@@ -65,8 +81,8 @@ namespace SuperERP.Vendas.Service
             pessoa.Nome = p.Nome;
             pessoa.CPF = p.CPF;
             pessoa.RG = p.RG;
-            if(p.Email != null)
-            {                
+            if (p.Email != null)
+            {
                 cont.Email = p.Email;
                 cont.Nome = p.Nome;
                 cont.Fone = p.Fone;
@@ -78,7 +94,7 @@ namespace SuperERP.Vendas.Service
             {
 
             }
-            if(p.Endereco != null)
+            if (p.Endereco != null)
             {
                 end.Endereco1 = p.Endereco;
                 end.Numero = p.Numero;
