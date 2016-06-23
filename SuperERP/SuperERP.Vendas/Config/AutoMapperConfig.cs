@@ -39,7 +39,7 @@ namespace SuperERP.Vendas.Config
             AutoMapper.Mapper.CreateMap<Venda, VendaDTO>();
             AutoMapper.Mapper.CreateMap<Venda_Ativos, VendaAtivosDTO>();
             AutoMapper.Mapper.CreateMap<Venda_Ativos, VendaAtivosEstoqueDTO>();
-            AutoMapper.Mapper.CreateMap<Venda_Ativos, CompraAtivosEstoqueDTO>();
+            AutoMapper.Mapper.CreateMap<Compra_Ativos, CompraAtivosEstoqueDTO>();
             AutoMapper.Mapper.CreateMap<Categoria, CategoriaDTO>();
             AutoMapper.Mapper.CreateMap<Empresa, EmpresaDTO>();
             AutoMapper.Mapper.CreateMap<Ordem_Servico, OrdemServicoDTO>()
