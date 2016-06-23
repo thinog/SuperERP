@@ -29,11 +29,6 @@ select {
     padding-top: 4px;
 }
 
-.row {
-    height: 30px;
-    padding-top: 4px;
-}
-
 .dropdown:hover .dropdown-menu {
 display: block;
 }

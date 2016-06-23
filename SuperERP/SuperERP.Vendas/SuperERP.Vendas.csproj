@@ -68,6 +68,7 @@
     <Compile Include="DTO\VendaAtivosDTO.cs" />
     <Compile Include="DTO\VendaAtivosEstoqueDTO.cs" />
     <Compile Include="DTO\VendaDTO.cs" />
+    <Compile Include="Excluir.cs" />
     <Compile Include="Listar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ClienteService.cs" />
