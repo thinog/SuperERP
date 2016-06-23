@@ -25,6 +25,20 @@ namespace SuperERP.Web.Controllers
             return View();
         }
 
+        public ActionResult ExcluirVenda(int id)
+        {
+            try
+            {
+                // TODO: Add update logic here
+                Vendas.Excluir.Venda(id);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
         [HttpPost]
         public ActionResult Novo(VendaContratoDTO vendaContrato)
         {
