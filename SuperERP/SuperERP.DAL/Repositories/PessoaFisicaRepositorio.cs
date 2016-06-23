@@ -58,11 +58,11 @@ namespace SuperERP.DAL.Repositories
             else
             {
                 var emp = new Empresa();
-                var end = new Endereco();
+                //var end = new Endereco();
                 emp.CNPJ = "0";
                 emp.Nome = "0";
                 emp.RazaoSocial = "0";
-                end.Endereco1 = "0";
+                /*end.Endereco1 = "0";
                 end.Numero = "0";
                 end.Complemento = "0";
                 end.Bairro = "0";
@@ -70,7 +70,7 @@ namespace SuperERP.DAL.Repositories
                 end = dbContext.Enderecoes.Add(end);
                 List<Endereco> e = new List<Endereco>();
                 e.Add(end);
-                emp.Enderecoes = e;
+                emp.Enderecoes = e;*/
                 emp = dbContext.Empresas.Add(emp);
                 dbContext.SaveChanges();
                 return emp;
@@ -97,6 +97,110 @@ namespace SuperERP.DAL.Repositories
                 System.Console.WriteLine(e);
             }
             return pessoa;
+        }
+
+        public PessoaFisica EditaPF(PessoaFisica pf, Contato cont, Endereco end)
+        {
+            var pessoa = dbContext.PessoaFisicas.Find(pf.ID);
+            pessoa.Nome = pf.Nome;
+            pessoa.RG = pf.RG;
+            pessoa.CPF = pf.CPF;
+            try { 
+                if (end != null)
+                {
+                    var e = BuscaEndereco(pessoa.ID);
+                    if (e != null)
+                    {
+                        e.Endereco1 = end.Endereco1;
+                        e.Numero = end.Numero;
+                        e.Complemento = end.Complemento;
+                        e.Bairro = end.Bairro;
+                        e.Cidade = end.Cidade;
+                        e.CEP = end.CEP;
+                    }
+                    else
+                    {
+                        end.PessoaFisica = pessoa;
+                        dbContext.Enderecoes.Add(end);
+                    }
+                }
+                else
+                {
+                    var e = BuscaEndereco(pessoa.ID);
+                    if(e != null)
+                    {
+                        dbContext.Enderecoes.Remove(e);
+                    }
+                }
+
+                if (cont != null)
+                {
+                    var c = BuscaContato(pessoa.ID);
+                    if (c != null)
+                    {
+                        c.Fone = cont.Fone;
+                        c.Email = cont.Email;
+                        c.Cargo = cont.Cargo;
+                    }
+                    else
+                    {
+                        cont.PessoaFisica = pessoa;
+                        dbContext.Contatoes.Add(cont);
+                    }
+                }
+                else
+                {
+                    var c = BuscaContato(pessoa.ID);
+                    if (c != null)
+                    {
+                        dbContext.Contatoes.Remove(c);
+                    }
+                }
+
+                dbContext.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e);
+            }
+            return pessoa;
+        }
+
+        public Endereco BuscaEndereco(int idPf)
+        {
+            var end = dbContext.Enderecoes.Where(x => x.ID_PessoaFisica == idPf).FirstOrDefault();
+            if(end != null)
+            {
+                return end;
+            }
+            return null;
+        }
+        public Contato BuscaContato(int idPf)
+        {
+            var cont = dbContext.Contatoes.Where(x => x.ID_PessoaFisica == idPf).FirstOrDefault();
+            if (cont != null)
+            {
+                return cont;
+            }
+            return null;
+        }
+        public void ExcluiEndereco(int idPf)
+        {
+            var end = dbContext.Enderecoes.Where(x => x.ID_PessoaFisica == idPf).FirstOrDefault();
+            if (end != null)
+            {
+                dbContext.Enderecoes.Remove(end);
+                dbContext.SaveChanges();
+            }
+        }
+        public void ExcluiContato(int idPf)
+        {
+            var cont = dbContext.Contatoes.Where(x => x.ID_PessoaFisica == idPf).FirstOrDefault();
+            if (cont != null)
+            {
+                dbContext.Contatoes.Remove(cont);
+                dbContext.SaveChanges();
+            }
         }
     }
 }

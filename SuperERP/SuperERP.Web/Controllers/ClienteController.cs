@@ -20,7 +20,79 @@ namespace SuperERP.Web.Controllers
 
         public ActionResult Editar(int id, int tipo)
         {
-            return View();
+            if (tipo == 1)
+            {
+                var pf = ClienteService.BuscaPF(id);
+                return View("EditarPF", pf);
+            }
+            else if (tipo == 2)
+            {
+                var pj = ClienteService.BuscaPJ(id);
+                return View("EditarPJ", pj);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Editar(FormCollection f)
+        {
+            // Pessoa Fisica
+            if (f["pessoa"] == "1")
+            {
+                var pessoa = new PessoaFisicaDTO();
+
+                pessoa.ID = Convert.ToInt32(f["ID"]);
+                pessoa.Nome = f["Nome"];
+                pessoa.CPF = new Regex(@"[^\d]").Replace(f["CPF"], "");
+                pessoa.RG = new Regex(@"[^\d]").Replace(f["RG"], "");
+
+                if (f["Email"] != null)
+                {
+                    pessoa.Email = f["Email"];
+                    pessoa.Fone = new Regex(@"[^\d]").Replace(f["Fone"], "");
+                    pessoa.Cargo = f["Cargo"];
+                }
+
+                if (f["Endereco"] != null)
+                {
+                    pessoa.Endereco = f["Endereco"];
+                    pessoa.Numero = f["Numero"];
+                    pessoa.Complemento = f["Complemento"];
+                    pessoa.CEP = new Regex(@"[^\d]").Replace(f["CEP"], "");
+                    pessoa.Bairro = f["Bairro"];
+                    pessoa.Cidade = f["Cidade"];
+                }
+                ClienteService.EditaPessoaFisica(pessoa);
+            }
+            // Pessoa Juridica
+            else if (f["pessoa"] == "2")
+            {
+                var pessoa = new PessoaJuridicaDTO();
+                pessoa.ID = Convert.ToInt32(f["ID"]);
+                pessoa.Nome = f["Nome"];
+                pessoa.CNPJ = new Regex(@"[^\d]").Replace(f["CNPJ"], "");
+                pessoa.RazaoSocial = f["RazaoSocial"];
+
+                if (f["Email"] != null)
+                {
+                    pessoa.Email = f["Email"];
+                    pessoa.Fone = new Regex(@"[^\d]").Replace(f["Fone"], "");
+                    pessoa.Cargo = f["Cargo"];
+                }
+
+                if (f["Endereco"] != null)
+                {
+                    pessoa.Endereco = f["Endereco"];
+                    pessoa.Numero = f["Numero"];
+                    pessoa.Complemento = f["Complemento"];
+                    pessoa.CEP = new Regex(@"[^\d]").Replace(f["CEP"], "");
+                    pessoa.Bairro = f["Bairro"];
+                    pessoa.Cidade = f["Cidade"];
+                }
+                ClienteService.EditaPessoaJuridica(pessoa);
+            }
+            return RedirectToAction("Index");
         }
 
         public ActionResult Cadastrar()
@@ -31,9 +103,6 @@ namespace SuperERP.Web.Controllers
         [HttpPost]
         public ActionResult Cadastrar(FormCollection f)
         {
-            var a = f["pessoa"];
-            var b = f["Item1.Email"];
-            var c = f["Item1.Endereco"];
             // Pessoa Fisica
             if (f["pessoa"] == "1")
             {
@@ -89,17 +158,10 @@ namespace SuperERP.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
         public ActionResult Excluir(int id, int tipo)
         {
-            try
-            {
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            ClienteService.ExcluirCliente(id, tipo);
+            return RedirectToAction("Index");
         }
     }
 }
