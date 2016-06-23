@@ -237,7 +237,7 @@
     <Content Include="Views\OrdemServico\EditarOrdemServico.cshtml" />
     <Content Include="Views\OrdemServico\ListarTodasOrdens.cshtml" />
     <Content Include="Views\Cliente\Cadastrar.cshtml" />
-    <Content Include="Views\Cliente\Editar.cshtml" />
+    <Content Include="Views\Cliente\EditarPF.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Empresa\Index.cshtml" />
     <Content Include="Views\Empresa\Incluir.cshtml" />
@@ -246,6 +246,7 @@
     <Content Include="Views\VendasOrcamentos\Index.cshtml" />
     <Content Include="Views\VendasOrcamentos\Novo.cshtml" />
     <Content Include="Views\VendasOrcamentos\Visualizar.cshtml" />
+    <Content Include="Views\Cliente\EditarPJ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
