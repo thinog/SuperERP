@@ -1,3 +1,6 @@
+# Super ERP
+Projeto desenvolvido durante curso de Análise e Desenvolvimento de Sistemas em Instituto Federal de São Paulo, em disciplina de Soluções para Gestão, feito em ASP.NET MVC, em .NET Framework 4.5.
+
 ## Grupo 1 - Vendas - Bruno
 Parcelas a Receber<br>
 Nota Fiscal de Produto<br>
